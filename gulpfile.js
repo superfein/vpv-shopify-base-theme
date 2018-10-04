@@ -7,11 +7,14 @@ const svg_sprite = require('gulp-svg-sprite');
 const browser_sync = require('browser-sync').create();
 const bs_config = require('./bs-config.js');
 const Bundler = require('parcel-bundler');
+const Babel = require("@babel/core");
 const gulp_sass = require('gulp-sass');
-const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
+const postcss = require('gulp-postcss');
+const plumber = require('gulp-plumber');
 const themekit = require('@shopify/themekit');
 const del = require('del');
+const replace = require('gulp-replace');
 const chalk = require('chalk');
 
 // Set NODE_ENV
@@ -41,13 +44,13 @@ function sync(done) {
 
 // Sprite sheet
 const sprite_config = {
-	mode: {
-		symbol: {
+    mode: {
+        symbol: {
             dest: '',
-			inline: true,
+            inline: true,
             sprite: 'icons.liquid',
-		}
-	},
+        }
+    },
     shape: {
         transform: [{
             svgo: {
@@ -61,9 +64,9 @@ const sprite_config = {
 };
 
 function sprites() {
-	return gulp.src('src/assets/icons/**/*.svg')
-    	.pipe(svg_sprite(sprite_config))
-    	.pipe(gulp.dest('src/snippets'));
+    return gulp.src('src/assets/icons/**/*.svg')
+        .pipe(svg_sprite(sprite_config))
+        .pipe(gulp.dest('src/snippets'));
 };
 
 function watch_sprites(done) {
@@ -74,7 +77,7 @@ function watch_sprites(done) {
 // Assets
 function assets() {
     return gulp.src(['src/assets/**/*', '!src/assets/{scripts,styles,icons}/**/*'])
-		.pipe(changed('dist'))
+        .pipe(changed('dist'))
         .pipe(flatten())
         .pipe(gulp.dest('dist/assets'));
 }
@@ -89,22 +92,22 @@ function watch_assets(done) {
     let watcher = gulp.watch(globs);
 
     // Update
-	watcher.on('change', function(file, stats) {
+    watcher.on('change', function(file, stats) {
         console.log(chalk.magenta('[UPDATED] ') + chalk.blue(path.basename(file)));
         assets();
-	});
+    });
 
     // Add
-	watcher.on('add', function(file, stats) {
+    watcher.on('add', function(file, stats) {
         console.log(chalk.green('[ADDED] ') + chalk.blue(path.basename(file)));
         assets();
-	});
+    });
 
     // Delete
-	watcher.on('unlink', function(file, stats) {
+    watcher.on('unlink', function(file, stats) {
         console.log(chalk.red('[DELETED] ') + chalk.blue(path.basename(file)));
         return del.sync('dist/assets/' + path.basename(file));
-	});
+    });
     done();
 }
 
@@ -121,34 +124,37 @@ let watch_liquid = gulp.series(liquid, function(done) {
     let watcher = gulp.watch(['src/**/*', '!src/assets', '!src/assets/**/*']);
 
     // Update
-	watcher.on('change', function(file, stats) {
+    watcher.on('change', function(file, stats) {
         console.log(chalk.magenta('[UPDATED] ') + chalk.blue(path.basename(file)));
         return gulp.src(['src/**/*', '!src/assets', '!src/assets/**/*'])
             .pipe(changed('dist'))
             .pipe(gulp.dest('dist'));
-	});
+    });
 
     // Add
-	watcher.on('add', function(file, stats) {
+    watcher.on('add', function(file, stats) {
         console.log(chalk.green('[ADDED] ') + chalk.blue(path.basename(file)));
         return gulp.src(['src/**/*', '!src/assets', '!src/assets/**/*'])
             .pipe(changed('dist'))
             .pipe(gulp.dest('dist'));
-	});
+    });
 
-	watcher.on('unlink', function(file, stats) {
+    watcher.on('unlink', function(file, stats) {
         console.log(chalk.red('[DELETED] ') + chalk.blue(path.basename(file)));
         return del.sync('dist/**/' + path.basename(file));
-	});
+    });
     done();
 });
 
 // Compile sass
 function sass() {
     return gulp.src('src/assets/styles/*.scss')
+        .pipe(plumber())
         .pipe(gulp_sass({ outputStyle: 'compressed', sourceMapEmbed: process.env.NODE_ENV == 'production' ? true : false }).on('error', gulp_sass.logError))
         .pipe(postcss([autoprefixer()], {map: process.env.NODE_ENV == 'development'}))
         .pipe(rename({extname: '.css.liquid'}))
+        .pipe(replace('"{{', '{{'))
+        .pipe(replace('}}"', '}}'))
         .pipe(gulp.dest('dist/assets'));
 }
 
@@ -175,6 +181,24 @@ function parcel(done) {
     const bundler = new Bundler(entry_file, parcel_options);
     bundler.bundle().then(() => done());
 };
+
+// Babel
+const babel_entry_file = path.join(__dirname, './dist/assets/theme.js');
+
+function babel(done) {
+  // Babel options
+  let babel_options = {
+    "presets": [
+      ["@babel/env", {
+        targets: "> 0.25%, not dead"
+      }]
+    ]
+  }
+
+  Babel.transformFile(babel_entry_file, babel_options, function (err, result) {
+    done()
+  });
+}
 
 // Themekit
 function theme_watch(done) {
@@ -223,7 +247,8 @@ let build_commands = [
     assets,
     sass,
     liquid,
-    parcel
+    parcel,
+    babel
 ];
 
 let deploy_commands = [
@@ -240,9 +265,10 @@ let watch_commands = [
     set_dev,
     clear,
     watch_all_assets,
-    watch_sass
+    watch_sass,
     watch_liquid,
     parcel,
+    babel,
     theme_watch,
     sync
 ];
