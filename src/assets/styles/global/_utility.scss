@@ -1,0 +1,366 @@
+body {
+
+  &.fixed {
+     overflow: hidden;
+  }
+}
+
+/*================ Width and Height Classes ================*/
+
+.height--100 {
+  height: 100%;
+
+  &-vh {
+    height: 100vh;
+  }
+}
+
+.width--100 {
+  width: 100%;
+  &-vw {
+    width: 100vw;
+  }
+}
+
+/*================ Overlay ================*/
+
+.site-overlay {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0s linear 500ms, opacity 500ms linear;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  @media (max-width: $md-break) {
+    display: none;
+  }
+}
+
+/*================ Images ================*/
+
+img,
+picture {
+  backface-visibility: hidden;
+}
+
+/*================ Hidden ================*/
+
+.hidden-sm {
+  @media screen and (max-width: $sm-break) {
+    display: none;
+  }
+}
+
+.hidden-md {
+  @media screen and (max-width: $md-break) {
+    display: none;
+  }
+}
+
+.hidden-lg {
+  @media screen and (max-width: $lg-break) {
+    display: none;
+  }
+}
+
+/*================ Postioning ================*/
+
+.pos-rel {
+  position: relative;
+}
+
+.pos-abs {
+  position: absolute;
+}
+
+/*================ Float ================*/
+
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+/*================ Drop Shadow ================*/
+
+.drop-shadow {
+  box-shadow: 0 1rem 24px 0 rgba(0,0,0,.12);
+}
+
+.drop-shadow--inset{ 
+  box-shadow: inset 0 0 24px 0 rgba(0,0,0,0.20);
+}
+
+/*================ Display Helpers ================*/
+
+.dis-block,
+.block {
+  display: block;
+}
+
+.dis-flex,
+.flex {
+  display: flex;
+}
+
+.dis-inline-block,
+.inline-block {
+  display: inline-block;
+}
+
+.dis-inline,
+.inline {
+  display: inline;
+}
+
+/*================ Dividers ================*/
+
+hr.divider {
+  height: 1px;
+  width: 100%;
+  border: none;
+  
+  &.primary {
+    background-color: $primary-color;
+  }
+
+  &.secondary {
+    background-color: $secondary-color;
+  }
+}
+
+/*================ Margin and Padding Classes ================*/
+
+/// MARGIN
+
+// auto
+.margin-auto {
+  margin: auto;
+}
+
+// margin-top
+.margin-top--zero {
+  margin-top: 0;
+}
+
+.margin-top--x-small {
+  margin-top: calc(.5rem);
+}
+
+.margin-top--small {
+  margin-top: calc(1.5rem);
+}
+.margin-top--medium {
+  margin-top: calc(3rem + .4vw);
+}
+
+.margin-top--large {
+  margin-top: calc(5.25rem + .4vw);
+  @media screen and (max-width: $sm-break) {
+    margin-top: calc(3.75rem + .4vw);  
+  }
+}
+
+.margin-top--x-large {
+  margin-top: calc(10.5rem + .4vw);
+  @media screen and (max-width: $sm-break) {
+    margin-top: calc(7.5rem + .4vw);
+  }
+}
+
+// bottom
+.margin-bottom--zero {
+  margin-bottom: 0;
+}
+
+.margin-bottom--x-small {
+  margin-bottom: .5rem;
+}
+
+.margin-bottom--small {
+  margin-bottom: calc(1.5rem);
+}
+
+.margin-bottom--medium {
+  margin-bottom: calc(3rem + .4vw);
+}
+
+.margin-bottom--large {
+  margin-bottom: calc(5.25rem + .4vw);
+  @media screen and (max-width: $sm-break) {
+    margin-bottom: calc(3.75rem + .4vw);  
+  }
+}
+
+.margin-bottom--x-large {
+  margin-bottom: calc(10.5rem + .4vw);
+  @media screen and (max-width: $sm-break) {
+    margin-bottom: calc(7.5rem + .4vw);
+  }
+}
+
+
+/// PADDING
+
+// top
+.padding-top--zero {
+  padding-top: 0;
+}
+
+.padding-top--small {
+  padding-top: calc(1.5rem);
+}
+
+.padding-top--medium {
+  padding-top: calc(3rem + .4vw);
+}
+
+.padding-top--large {
+  padding-top: calc(5.25rem + .4vw);
+  @media screen and (max-width: $sm-break) {
+    padding-top: calc(3.75rem + .4vw);  
+  }
+}
+
+.padding-top--x-large {
+  padding-top: calc(10.5rem + .4vw);
+  @media screen and (max-width: $sm-break) {
+    padding-top: calc(7.5rem + .4vw);
+  }
+}
+
+// bottom
+.padding-bottom--zero {
+  padding-bottom: 0;
+}
+
+.padding-bottom--small {
+  padding-bottom: calc(1.5rem);
+}
+
+.padding-bottom--medium {
+  padding-bottom: calc(3rem + .4vw);
+}
+
+.padding-bottom--large {
+  padding-bottom: calc(5.25rem + .4vw);
+  @media screen and (max-width: $sm-break) {
+    padding-bottom: calc(3.75rem + .4vw);  
+  }
+}
+
+.padding-bottom--x-large {
+  padding-bottom: calc(10.5rem + .4vw);
+  @media screen and (max-width: $sm-break) {
+    padding-bottom: calc(7.5rem + .4vw);
+  }
+}
+
+// left right
+
+.padding-left-right {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.padding-left-right-small {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.padding-right--small {
+  padding-right: 1.5rem;
+}
+
+.padding-left--small {
+  padding-left: 1.5rem; 
+}
+
+.padding-right--medium {
+  padding-right: 3rem;
+}
+
+.padding-left--medium {
+  padding-left: 3rem;
+}
+
+/*================ Text Alignment Classes ================*/
+
+.text-align--center {
+  text-align: center;
+}
+
+.text-align--right {
+  text-align: right;
+}
+
+.text-align--left {
+  text-align: left;
+}
+
+/*================ FLOAT ================*/
+
+.float--center {
+  float: center;
+}
+
+.float--right {
+  float: right;
+}
+
+.float--left {
+  float: left;
+}
+
+/*==================== Images =====================*/
+
+img,
+picture {
+  backface-visibility: hidden;
+}
+
+
+/*================ Z-Index Classes ================*/
+
+.z-bottom {
+  z-index: 0;
+}
+
+.z-middle {
+  z-index: 1;
+}
+
+.z-top {
+  z-index: 2;
+}
+
+/*================ Color Background Classes ================*/
+
+.bg--white {
+  background-color: $white;
+}
+
+.bg--black {
+  background-color: $black;
+}
+
+.bg--primary {
+  background-color: $primary-color;
+}
+
+/*================ Background Size Classes ================*/
+
+.bg--cover {
+  background-size: cover;
+}

@@ -13,13 +13,14 @@ $md-break: 1024px;
 $lg-break: 1440px;
 
 /*==== Colors ===*/
-$primary-color: #563CE7; // VPV ULTRA-VIOLET
+$primary-color: #{'"{{ settings.primary_color }}"'};
+$secondary-color: #{'"{{ settings.secondary_color }}"'};
+$white: #FFF;
 $black: #000;
 
 /*==== Typography ====*/
-$base-font-size: 16px;
-$karla: 'Karla', sans-serif;
+$base-font-size: #{'"{{ settings.base_font_size }}"'};
 
 /*=== UI Kit ====*/
 $ui-kit-banner-background: $primary-color;
-$ui-kit-banner-title-color: white;
+$ui-kit-banner-title-color: $white;

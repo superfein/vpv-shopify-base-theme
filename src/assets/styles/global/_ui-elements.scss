@@ -1,0 +1,22 @@
+button {
+	width: 10rem;
+	padding: 2rem 1rem;
+	cursor: pointer;
+
+	&.primary {
+		background-color: $primary-color;
+		color: $white;
+	}
+
+	&.secondary {
+		background-color: $secondary-color;
+		color: $white;
+	}
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+	width: 100%;
+	padding: 0 1rem;
+}

@@ -1,8 +1,113 @@
-[{
+[
+	{
     "name": "theme_info",
     "theme_name": "V+V Base",
     "theme_version": "1.0",
     "theme_author": "V+V",
     "theme_documentation_url": "https://github.com/verbalplusvisual/vpv-shopify-base-theme",
     "theme_support_url": "https://github.com/verbalplusvisual/vpv-shopify-base-theme"
-}]
+	},
+  {
+    "name": "Favicon",
+    "settings": [
+    	{
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image",
+        "info": "Image should have a 1:1 aspect ratio. ill be scaled down to 32 x 32px"
+    	}
+    ]
+  },
+  {
+    "name": "Logos",
+    "settings": [
+    	{
+      	"type": "image_picker",
+        "label": "Primary Logo",
+      	"id": "primary_logo"
+      },
+      {
+      	"type": "image_picker",
+        "label": "Secondary Logo",
+      	"id": "secondary_logo"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+    	{
+        "type": "select",
+        "id": "base_font_size",
+        "label": "Base size",
+        "options": [
+        	{
+            "value": "10px",
+        	  "label": "10"
+          },
+        	{
+            "value": "12px",
+        	  "label": "12"
+          },
+          {
+            "value": "14px",
+            "label": "14"
+          },
+          {
+            "value": "16px",
+            "label": "16"
+          },
+          {
+            "value": "18px",
+            "label": "18"
+          }
+        ]
+    	},
+    	{
+        "type": "select",
+        "id": "primary_font_family",
+        "label": "Primary Font Family",
+        "options": [
+        	{
+            "value": "Roboto",
+        	  "label": "Roboto"
+          },
+        	{
+            "value": "Roboto Mono",
+        	  "label": "Roboto Mono"
+          }
+        ]
+    	},
+    	{
+        "type": "select",
+        "id": "secondary_font_family",
+        "label": "Secondary Font Family",
+        "options": [
+        	{
+            "value": "Roboto",
+        	  "label": "Roboto"
+          },
+        	{
+            "value": "Roboto Mono",
+        	  "label": "Roboto Mono"
+          }
+        ]
+    	}
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+    	{
+        "type": "color",
+        "id": "primary_color",
+        "label": "Primary Color"
+    	},
+    	{
+        "type": "color",
+        "id": "secondary_color",
+        "label": "Secondary Color"
+    	}
+    ]
+  }
+]
