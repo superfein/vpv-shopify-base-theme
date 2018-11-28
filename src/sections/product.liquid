@@ -30,7 +30,6 @@
   {% endif %}
 
   <h1>{{ product.title }}</h1>
-  <p>{{ product.vendor }}</p>
   <p>{{ current_variant.sku }}</p>
 
   <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
@@ -81,6 +80,7 @@
       <button
         type="submit"
         name="add"
+        class="btn primary"
         data-add-to-cart
         {% unless current_variant.available %}disabled="disabled"{% endunless %}>
           <span data-add-to-cart-text>
