@@ -14,13 +14,14 @@
 
 	const setBgImage = function(bgWrapper,desktopImg,mobileImg ){
 		if (window.innerWidth > 992) {
-			bgWrapper.style.backgroundImage = "url('"+desktopImg+"')";
+			bgWrapper.style.backgroundImage = "url('"+desktopImg.trim()+"')";
 		} else {
-			bgWrapper.style.backgroundImage = "url('"+mobileImg+"')";
+			bgWrapper.style.backgroundImage = "url('"+mobileImg.trim()+"')";
 		}
 	}
 
 	document.addEventListener('DOMContentLoaded', () => {
+		console.log('BG Set scripts loaded');
 		const bgWrappers = document.getElementsByClassName('bg__wrapper');
 		if (bgWrappers.length >= 1) {
 			for ( bgWrapper of bgWrappers ) {
