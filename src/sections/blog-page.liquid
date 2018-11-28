@@ -50,7 +50,7 @@
 {% endschema %}
 
 
-{% paginate blog.articles by 2 %}
+{% paginate blog.articles by 6 %}
 
   {%- assign blog_title = blog.title -%}
 
@@ -60,7 +60,7 @@
     {% endcapture %}
   {% endif %}
   <!-- BANNER -->
-  <div class="bg__wrapper bg--cover height--100-vh width--100-vw" data-bg="{{ section.settings.bg_image | img_url: '2880x' }}" data-bg-mobile="{{ section.settings.bg_image_mobile | img_url: '990x' }}">
+  <div class="bg__wrapper bg--cover height--100 width--100" data-bg="{{ section.settings.bg_image | img_url: '2880x' }}" data-bg-mobile="{{ section.settings.bg_image_mobile | img_url: '990x' }}">
     <div class="aspect-ratio--16x9 header">
       <div class="row align-center height--100">
         <div class="col-12">
@@ -106,7 +106,7 @@
       {% for article in blog.articles %}
         <div class="col-12 col-6-md">
           <a class="margin-top--lg display--block" href="{{ article.url }}">
-            <div class="margin-bottom--md">
+            <div class="margin-bottom--sm">
               <h2>
                 {{ article.title }}
               </h2>
