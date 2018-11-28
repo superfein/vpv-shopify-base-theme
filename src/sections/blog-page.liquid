@@ -50,7 +50,7 @@
 {% endschema %}
 
 
-{% paginate blog.articles by 5 %}
+{% paginate blog.articles by 2 %}
 
   {%- assign blog_title = blog.title -%}
 
@@ -59,7 +59,7 @@
       {{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}
     {% endcapture %}
   {% endif %}
-  
+  <!-- BANNER -->
   <div class="bg__wrapper bg--cover height--100-vh width--100-vw" data-bg="{{ section.settings.bg_image | img_url: '2880x' }}" data-bg-mobile="{{ section.settings.bg_image_mobile | img_url: '990x' }}">
     <div class="aspect-ratio--16x9 header">
       <div class="row align-center height--100">
@@ -101,59 +101,50 @@
   ====================
   {% endcomment %}
 
-  {% for article in blog.articles %}
-    <h3>
-      <a href="{{ article.url }}">{{ article.title }}</a>
-    </h3>
-    {% capture date %}
-      {{ comment.created_at | date: "%a, %b %d, %Y" }}
-    {% endcapture %}
-    <p>
-      {{ comment.author }}, {{ date }}
-    </p>
-
-    {% if article.image %}
-      <a href="{{ article.url }}">
-        {{ article | img_url: '1024x1024' | img_tag: article.title }}
-      </a>
-    {% endif %}
-
-    <div class="rte">
-      {% if article.excerpt.size > 0 %}
-        {{ article.excerpt }}
-      {% else %}
-        <p>
-          {{ article.content | strip_html | truncatewords: 100 }}
-        </p>
-      {% endif %}
-    </div>
-
-    {% if blog.comments_enabled? or article.tags.size > 0 %}
-      <ul>
-        {% if blog.comments_enabled? %}
-          <li>
-            <a href="{{ article.url }}#comments">
-              {{ 'blogs.comments.with_count' | t: count: article.comments_count }}
-            </a>
-          </li>
-        {% endif %}
-
-        {% if article.tags.size > 0 %}
-          {% for tag in article.tags %}
-            <li>
-              <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
-              {% unless forloop.last %}, {% endunless %}
-            </li>
-          {% endfor %}
-        {% endif %}
-      </ul>
-    {% endif %}
-
-    <p>
-      <a href="{{ article.url }}">{{ 'blogs.article.read_more' | t }} &rarr;</a>
-    </p>
-
-  {% endfor %}
+  <div class="container--lg">
+    <div class="row no-pad">
+      {% for article in blog.articles %}
+        <div class="col-12 col-6-md">
+          <a class="margin-top--lg display--block" href="{{ article.url }}">
+            <div class="margin-bottom--md">
+              <h2>
+                {{ article.title }}
+              </h2>
+            </div>  
+            {% capture date %}
+              {{ article.created_at | date: "%a, %b %d, %Y" }}
+            {% endcapture %}
+            <div class="margin-bottom--md">
+              <p>
+                {{ article.author }}, {{ date }}
+              </p>
+            </div>  
+            {% if article.image %}
+              <a href="{{ article.url }}">
+                <img class="width--100" src="{{ article.image.src | img_url: '800x' }}" alt="{{article.title}}">
+              </a>
+            {% endif %}
+            <div class="margin-top--md">
+              {% if article.excerpt.size > 0 %}
+                <p>
+                  {{ article.excerpt }}
+                </p>
+              {% else %}
+                <p>
+                  {{ article.content | strip_html | truncatewords: 100 }}
+                </p>
+              {% endif %}
+              <div class="margin-top--sm">
+                <a href="{{ article.url }}">
+                  Read more &rarr;
+                </a>
+              </div>
+            </div>
+          </a>
+        </div>        
+      {% endfor%}
+    </div>  
+  </div>
 
   {% if paginate.pages > 1 %}
     {% include 'pagination' %}
