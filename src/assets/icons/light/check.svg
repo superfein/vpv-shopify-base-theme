@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="11px" viewBox="0 0 14 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>white_check</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M13.0060425,1.01348877 L13.0060425,1.01348877 C13.1993997,1.206846 13.1993997,1.52034002 13.0060425,1.71369725 C13.0059606,1.71377916 13.0058786,1.71386104 13.0057967,1.71394289 L4.70710678,9.99999965 C4.31650243,10.3900561 3.68372018,10.389834 3.29338968,9.99950353 L1,7.70710678 C0.804737854,7.51184464 0.804737854,7.19526215 1,7 L1,7 C1.19526215,6.80473785 1.51184464,6.80473785 1.70710678,7 L3.82335758,9.11598225 C3.92093624,9.21356091 4.07912397,9.21362096 4.1767767,9.11611642 L12.2922582,1.01321779 C12.4894829,0.816292377 12.8089674,0.816413667 13.0060425,1.01348877 Z" id="path-1"></path>
+    </defs>
+    <g id="white_check" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Mask" fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+    </g>
+</svg>

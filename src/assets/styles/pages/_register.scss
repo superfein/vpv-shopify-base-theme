@@ -1,0 +1,67 @@
+.register {
+  &__container {
+    padding-top: 48px;
+    padding-bottom: 24px;
+    padding-left: 12px;
+    padding-right: 12px;
+    transition: opacity .3s cubic-bezier(.25, .1, .25, .1), visibility .3s cubic-bezier(.25, .1, .25, .1);
+    margin: 0 auto;
+
+    @media screen and (min-width: $sm-break) {
+      min-width: 375px;
+      max-width: 33%;
+    }
+
+    h2 {
+      margin-bottom: 36px;
+    }
+
+    &.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  &__form {
+    position: relative;
+    margin-bottom: 48px;
+    text-align: center;
+
+    input {
+      display: block;
+      margin-bottom: 24px;
+
+      &:not([type='submit']) {
+       @media screen and (min-width: $lg-break) {
+          width: 100%;
+        }
+        width: calc(100% - 1rem - 2px);
+        border: 1px solid $black;
+      }
+    }
+  }
+
+  &__password-toggle {
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      svg {
+        opacity: 1;
+      }
+    }
+
+    svg {
+      height: 24px;
+      width: 24px;
+      opacity: .5;
+      transition: opacity .3s cubic-bezier(.25, .1, .25, .1);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>white_caret_small_right</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M14.8519351,10.1496499 L14.8519351,10.1496499 C15.0454281,10.3431429 15.0454281,10.6568571 14.8519351,10.8503501 L12.5558386,13.1464466 C12.1653143,13.5369709 11.5321493,13.5369709 11.141625,13.1464466 L8.84873179,10.8535534 C8.65346965,10.6582912 8.65346965,10.3417088 8.84873179,10.1464466 L8.84873179,10.1464466 C9.04399394,9.95118446 9.36057643,9.95118446 9.55583857,10.1464466 L11.6719551,12.2625631 C11.7695862,12.3601942 11.9278774,12.3601942 12.0255085,12.2625631 L14.1384217,10.1496499 C14.335453,9.95261865 14.6549038,9.95261865 14.8519351,10.1496499 Z" id="path-1"></path>
+    </defs>
+    <g id="white_caret_small_right" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Mask" fill="#FFFFFF" fill-rule="nonzero" transform="translate(11.849670, 11.719670) rotate(270.000000) translate(-11.849670, -11.719670) " xlink:href="#path-1"></use>
+    </g>
+</svg>

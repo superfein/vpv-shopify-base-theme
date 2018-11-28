@@ -16,8 +16,23 @@
 @import 'global/ui-elements';
 //
 // // Components
-// @import 'components/nav';
-// @import 'components/footer';
+@import 'components/nav';
+@import 'components/footer';
+@import 'components/promo';
+@import 'components/icons';
 //
 // // Pages
 @import 'pages/index';
+@import 'pages/product';
+@import 'pages/cart';
+@import 'pages/collection';
+@import 'pages/login';
+@import 'pages/resetpw';
+@import 'pages/register';
+@import 'pages/activate';
+@import 'pages/account';
+@import 'pages/addresses';
+@import 'pages/order';
+@import 'pages/search';
+@import 'pages/blog';
+

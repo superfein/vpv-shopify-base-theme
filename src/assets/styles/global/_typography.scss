@@ -41,7 +41,9 @@ a {
 }
 
 
-h1, .h1 {
+h1, 
+.h1,
+%h {
 	font-family: $primary-font-family;
 	font-size: calc(3rem + 1vw);
 	line-height: calc(3rem + 1vw);
@@ -53,13 +55,17 @@ h1, .h1 {
 
 }
 
-h2, .h2 {
+h2, 
+.h2,
+%h2 {
 	font-family: $primary-font-family;
 	font-size: calc(1.875rem + 1vw);
 	line-height: calc(2.25rem + 1vw);
 }
 
-h3, .h3 {
+h3,
+.h3,
+%h3 {
 	font-family: $primary-font-family;
 	font-size: calc(1.125rem + 0.125vw);
 	line-height: calc(1.5rem + 0.5vw);
@@ -67,7 +73,10 @@ h3, .h3 {
 	font-weight: 500;
 }
 
-h4, .subheader {
+h4,
+.h4,
+%h4,
+.subheader {
 	font-family: $primary-font-family;
 	font-size: 0.875rem;
 	line-height: 1.5rem;
@@ -75,18 +84,26 @@ h4, .subheader {
 	font-weight: 500;
 }
 
-p, .paragraph, 
+p,
+.p,
+a.p,
+.paragraph, 
 figcaption, 
 article span {
 	font-family: $primary-font-family;
 	font-size: 0.875rem;
 	line-height: 1.5rem;
 	letter-spacing: 1.5px;
+	text-transform: none;
 
-	&.paragraph--large {
+	&--large {
 		font-family: $primary-font-family;
 		font-size: 1.875rem;
 		line-height: 3rem;
+	}
+
+	&--2 {
+		
 	}
 }
 
@@ -98,15 +115,17 @@ article strong {
 	font-weight: bold;
 }	
 
-a, .text-link {
+a, 
+.text-link {
 	font-family: $primary-font-family;
 	font-size: 0.875rem;
-	line-height: 1.875rem;
+	line-height: 1.5rem;
 	letter-spacing: 0.5px;
 	font-style: italic;
 	color: inherit;
 	transition: color 0.5s;
-	text-decoration: underline;
+	font-style: normal;
+	text-decoration: none;
 	cursor: pointer;
 
 	&.inline-block {

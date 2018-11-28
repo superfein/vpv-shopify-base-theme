@@ -1,0 +1,174 @@
+.account-page {
+  &__header {
+    box-sizing: border-box;
+    max-width: 1188px;
+    margin: 36px auto 0;
+    padding: 0 24px;
+    text-align: center;
+
+    @media screen and (min-width: $lg-break) {
+      padding: 0 12px;
+    }
+
+    a {
+      display: inline-flex;
+      margin: 12px 0 0;
+      align-items: center;
+
+      svg {
+        height: 24px;
+        width: 24px;
+        margin: 0 6px 0 0;
+      }
+    }
+  }
+
+  &__order-account-wrapper {
+    @media screen and (min-width: $lg-break) {
+      display: flex;
+      max-width: 1188px;
+      margin: 0 auto;
+    }
+  }
+
+  &__order-container {
+    margin: 24px 0 0;
+    padding: 0 24px;
+
+    @media screen and (min-width: $lg-break) {
+      flex-basis: 70%;
+      padding: 0 24px 0 12px;
+    }
+
+    h4 {
+      margin: 0 0 12px;
+    }
+  }
+
+  &__order-table {
+    table {
+      table-layout: fixed;
+      width: 100%;
+      border: solid 1px black;
+
+      th {
+        width: 20%;
+        padding: 24px 0;
+        text-align: left;
+        border-bottom: solid 1px black;
+
+        &:first-child {
+          padding: 0 0 0 24px;
+        }
+
+        &:last-child {
+          width: 15%;
+          padding: 0 24px 0 0;
+        }
+      }
+
+      td {
+        padding: 24px 0;
+        text-align: left;
+        border-bottom: solid 1px black;
+
+        &:first-child {
+          padding: 0 0 0 24px;
+        }
+
+        &:last-child {
+          padding: 0 24px 0 0;
+        }
+      }
+
+      @media screen and (max-width: $sm-break) {
+        border: 0;
+
+        thead {
+          left: -9999px;
+          position: absolute;
+          top: -9999px;
+        }
+
+        tr {
+          display: flex;
+          flex-wrap: wrap;
+          width: 100%;
+
+          &:not(:last-child) {
+            margin: 0 0 24px;
+          }
+        }
+
+        td {
+          display: flex;
+          justify-content: space-between;
+          flex-basis: 100%;
+          margin: 0;
+          padding: 6px 0;
+          border-bottom: 0;
+
+          &:first-child {
+            padding: 6px 0;
+          }
+
+          &:last-child {
+            padding: 6px 0;
+          }
+
+          &:nth-of-type(1):before { content: 'Order'; }
+          &:nth-of-type(2):before { content: 'Date'; }
+          &:nth-of-type(3):before { content: 'Payment Status'; }
+          &:nth-of-type(4):before { content: 'Fulfillment Status'; }
+          &:nth-of-type(5):before { content: 'Total'; }
+        }
+      }
+    }
+  }
+
+  &__address-container {
+    margin: 36px 0 0;
+    padding: 0 24px;
+
+    @media screen and (min-width: $lg-break) {
+      flex-basis: 20%;
+      padding: 0 12px 0 24px;
+    }
+
+    h4 {
+      margin: 0 0 12px;
+    }
+  }
+
+  &__default-address-container {
+    b {
+      display: block;
+      margin: 0 0 6px;
+    }
+
+    a {
+      display: inline-block;
+      margin: 12px 0 0;
+    }
+  }
+
+  &__findify-container {
+    box-sizing: border-box;
+    margin: 48px 0 0;
+    padding: 0 24px;
+
+    @media screen and (min-width: $lg-break) {
+      padding: 0 12px;
+      margin: 60px auto 0;
+      max-width: 1188px;
+    }
+
+    h4 {
+      margin: 0 0 12px;
+    }
+
+    .findify-element {
+      margin: 0 -9px;
+    }
+  }
+}

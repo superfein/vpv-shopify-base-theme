@@ -109,5 +109,115 @@
         "label": "Secondary Color"
     	}
     ]
+  },
+  {
+    "name": "Promo Bar",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "promo_bar",
+        "label": "Show Promo Bar?",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "promo_bar_text",
+        "label": "Promo Bar Text"
+      },
+      {
+        "type": "text",
+        "id": "promo_bar_code",
+        "label": "Promo Bar Code"
+      },
+      {
+        "type": "color",
+        "id": "promo_bar_color",
+        "label": "Promo Bar Color",
+        "default": "#FF00FF"
+      },
+      {
+        "type": "color",
+        "id": "promo_bar_text_color",
+        "label": "Promo Bar Text Color",
+        "default": "#FFFFFF"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Social sharing options"
+      },
+      {
+        "type": "checkbox",
+        "id": "social_sharing_blog",
+        "label": "Enable sharing for blog articles",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_facebook",
+        "label": "Share on Facebook",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_twitter",
+        "label": "Tweet on Twitter",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "share_pinterest",
+        "label": "Pin on Pinterest",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "Sharing links"
+      },
+      {
+        "type": "text",
+        "id": "social_twitter_link",
+        "label": "Twitter link"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook_link",
+        "label": "Facebook link"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest_link",
+        "label": "Pinterest link"
+      },
+      {
+        "type": "text",
+        "id": "social_instagram_link",
+        "label": "Instagram link"
+      },
+      {
+        "type": "text",
+        "id": "social_snapchat_link",
+        "label": "Snapchat link"
+      },
+      {
+        "type": "text",
+        "id": "social_tumblr_link",
+        "label": "Tumblr link"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube_link",
+        "label": "Youtube link"
+      },
+      {
+        "type": "text",
+        "id": "social_vimeo_link",
+        "label": "Vimeo link"
+      }
+    ]
   }
 ]

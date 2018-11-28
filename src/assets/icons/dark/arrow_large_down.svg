@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>charcoal(.8)_caret_large_down</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M17.1452411,10.1519867 L17.1452411,10.1519867 C17.3362389,10.3429845 17.3362389,10.6526531 17.1452411,10.8436509 C17.1437449,10.8451471 17.1422391,10.8466335 17.1407236,10.8481102 L12.8445232,15.0342118 C12.4564081,15.4123807 11.8376996,15.4126071 11.4493079,15.0347224 L7.1492668,10.8510095 C6.95404111,10.6610652 6.94975969,10.3488232 7.13970398,10.1535975 C7.14127584,10.151982 7.14285875,10.1503772 7.14445261,10.1487834 L7.14445261,10.1487834 C7.34061351,9.95262246 7.65787005,9.95011147 7.85711128,10.1431429 L11.9730608,14.1308092 C12.0700711,14.224796 12.2241941,14.224731 12.3211251,14.1306625 L16.4264217,10.1466005 C16.6272551,9.95169799 16.9473509,9.95409648 17.1452411,10.1519867 Z" id="path-1"></path>
+    </defs>
+    <g id="charcoal(.8)_caret_large_down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Mask" fill-opacity="0.8" fill="#2C3039" fill-rule="nonzero" xlink:href="#path-1"></use>
+    </g>
+</svg>

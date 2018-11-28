@@ -1,0 +1,17 @@
+<div class="register__container">
+  <h2>Create Account</h2>
+  {% form 'create_customer', class: "register__form" %}
+    {%- if form.errors -%}
+      {{ form.errors | default_errors }}
+    {%- endif -%}
+    <input type="text" name="customer[first_name]" id="FirstName" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} placeholder="First Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'First Name'">
+    <input type="text" name="customer[last_name]" id="LastName" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} placeholder="Last Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Last Name'">
+    <input type="email" name="customer[email]" id="Email" class="{% if form.errors contains 'email' %} input--error{% endif %}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off" placeholder="Email"  onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+    <input id="signup-password" type="password" name="customer[password]" id="CreatePassword" class="{% if form.errors contains 'password' %} input--error{% endif %}" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+    <label class="" for="accepts-marketing">
+      I would like to recieve emails
+      <input id="accepts-marketing" type="checkbox" />
+    </label>
+    <input class="button dark" type="submit" value="Sign Up">
+  {% endform %}
+</div>
