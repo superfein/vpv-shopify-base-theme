@@ -1,0 +1,218 @@
+{% capture date %}
+  {{ article.published_at | date: "%a, %b %d, %Y" }}
+{% endcapture %}
+
+{% if article.image %}  
+  <div class="bg__wrapper bg--cover height--100-vh width--100-vw" data-bg="{{ article.image | img_url: '2880x' }}" data-bg-mobile="{{ article.image | img_url: '990x' }}">
+    <div class="aspect-ratio--16x9 header">
+      <div class="row align-center height--100">
+        <div class="col-12">
+          <div class="row no-pad">
+            <div class="col-10 offset-1">
+              <h1 class="color--secondary">
+                {{ article.title }}
+              </h1>
+            </div>  
+          </div>  
+        </div>  
+      </div>
+    </div>
+  </div>
+{% else %}
+  <h1 class="color--primary text-align--center">
+    {{ article.title }}
+  </h1>
+{% endif %}
+
+<div class="container--lg">
+  <article role="article" itemscope itemtype="http://schema.org/Article">
+    <div class="row">
+      <div class="col-12">
+        
+        <div class="margin-top--md margin-bottom--md">
+          <h4 class="color--black">
+            by {{ article.author}}
+          </h4>
+          <h4 class="color--black">
+            {{ date }}
+          </h4>
+        </div>
+
+        <div class="rte" itemprop="articleBody">
+          {{ article.content }}
+        </div>
+      </div>
+    </div>    
+
+    {% if article.tags.size > 0 %}
+     <div class="row margin-top--sm margin-bottom--sm">
+      <p>
+        Tags:
+      </p>
+      {% for tag in article.tags %}
+        <div class="col-2">
+          <a href="{{ blog.url }}/tagged/{{ tag | handle }}">
+            {{ tag }}
+          </a>{% unless forloop.last %}, {% endunless %}
+        </div class="col-2">
+      {% endfor %}      
+     </div> 
+    {% endif %}
+
+    {% if settings.social_sharing_blog %}
+      <div class="row">
+        <div class="col-12">
+          {% include 'social-sharing', share_title: article.title, share_permalink: article.url, share_image: article.image %}
+        </div>  
+      </div>  
+    {% endif %}
+  
+
+    {% if blog.comments_enabled? %}
+      <div class="row">
+        
+        <div class="col-12">
+          <p>
+            Comments
+          </p>
+        </div>  
+      </div> 
+      {% paginate article.comments by 5 %}
+
+        <div class="row" id="comments">
+          {% if article.comments_count > 0 %}
+            <div class="col-12">
+              
+              {% comment %}
+                Display comment from URL parameters if it is waiting moderation
+              {% endcomment %}
+              {% if comment and comment.status != 'published' %}
+                <div class="margin-bottom--md" id="{{ comment.id }}">
+                  <div class="rte">
+                    {{ comment.content }}
+                  </div>
+                  {% capture date %}
+                    {{ comment.created_at | date: "%a, %b %d, %Y" }}
+                  {% endcapture %}
+                  <p>
+                    {{ comment.author }}, {{ date }}
+                  </p>
+                </div>
+              {% endif %}
+
+              {% for comment in article.comments %}
+                <div class="margin-bottom--md" id="{{ comment.id }}">
+                  <div class="rte">
+                    {{ comment.content }}
+                  </div>
+                  {% capture date %}
+                    {{ comment.created_at | date: "%a, %b %d, %Y" }}
+                  {% endcapture %}
+                  <p>
+                    {{ comment.author }}, {{ date }}
+                  </p>
+                </div>
+
+              {% endfor %}
+            </div>
+            {% if paginate.pages > 1 %}
+              {% include 'pagination' %}
+            {% endif %}
+          {% endif %}
+        </div>
+
+      {% endpaginate %}
+      
+      {% form 'new_comment', article %} 
+      <div class="row">
+        <div class="col-12">
+          <p>
+            Post a comment
+          </p>
+        </div> 
+      </div>   
+      
+      {{ form.errors | default_errors }}
+
+        <div class="row">  
+          <div class="col-12 col-6-md">
+            
+            <label for="CommentAuthor" class="display--block">
+              Name
+            </label>
+            <input type="text"
+                   name="comment[author]"
+                   id="CommentAuthor"
+                   class="{% if form.errors contains 'author' %}input-error{% endif %}"
+                   placeholder="Name"
+                   value="{{ form.author }}"
+                   autocapitalize="words">
+          </div>  
+
+          <div class="col-12 col-6-md">
+            <label for="CommentEmail" class="display--block">
+              Email
+            </label>
+            <input type="email"
+                   name="comment[email]"
+                   id="CommentEmail"
+                   class="{% if form.errors contains 'email' %}input-error{% endif %}"
+                   placeholder="Email"
+                   value="{{ form.email }}"
+                   spellcheck="false"
+                   autocomplete="off"
+                   autocapitalize="off">
+          </div>         
+          
+          <div class="col-12">
+            <label for="CommentBody" class="display--block">
+              Comment
+            </label>
+            <div>
+              
+              <textarea
+                name="comment[body]"
+                id="CommentBody"
+                class="width--100 {% if form.errors contains 'body' %}input-error{% endif %}"
+                placeholder="Message">
+                {{ form.body }}
+              </textarea>
+            </div>  
+          </div>  
+
+          <div class="col-12">
+            {% if blog.moderated? %}
+              <p>
+                Blog Comments are moderated
+              </p>
+            {% endif %}
+          </div>  
+
+          <input type="submit" class="btn" value="Submit Comment">
+        {% endform %}
+      </div>
+
+    {% endif %}
+
+  </article> 
+</div>
+
+{% comment %}
+  When a comment is submitted, the browser is redirected to a page that includes 
+  the new comment id in its URL.
+  #comments is a required ID and is used as an anchor link by Shopify.
+{% endcomment %}
+
+{%- assign number_of_comments = article.comments_count -%}
+
+{% comment %}
+  If a comment was just submitted but requires moderation, we have an extra comment to count.
+{% endcomment %}
+{% if comment and comment.status != 'published' %}
+  {% assign number_of_comments = article.comments_count | plus: 1 %}
+{% endif %}
+
+
+
+
+{% include 'bg-set' %}

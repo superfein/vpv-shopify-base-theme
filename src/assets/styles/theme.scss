@@ -4,19 +4,37 @@
 @import 'global/variables';
 //
 // // Mixins
-// @import 'global/mixins';
+@import 'global/mixins';
 //
 // // Global
 @import 'global/normalize';
 @import 'global/reset';
-// @import 'global/utility';
+@import 'global/utility';
 @import 'global/typography';
 @import 'global/layout';
 @import 'global/grid';
+@import 'global/ui-elements';
 //
 // // Components
-// @import 'components/nav';
-// @import 'components/footer';
+@import 'components/nav';
+@import 'components/footer';
+@import 'components/promo';
+@import 'components/icons';
 //
 // // Pages
 @import 'pages/index';
+@import 'pages/product';
+@import 'pages/cart';
+@import 'pages/collection';
+@import 'pages/login';
+@import 'pages/resetpw';
+@import 'pages/register';
+@import 'pages/activate';
+@import 'pages/account';
+@import 'pages/addresses';
+@import 'pages/order';
+@import 'pages/search';
+@import 'pages/blog';
+
+// Vendor
+@import 'vendor/swiper';

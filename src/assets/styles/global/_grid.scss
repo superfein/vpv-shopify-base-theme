@@ -1,14 +1,14 @@
-.container-lg {
+.container--lg {
   margin: 0 auto;
   max-width: $lg-break;
 }
 
-.container-md {
+.container--md {
   margin: 0 auto;
   max-width: $md-break;
 }
 
-.container-sm {
+.container--sm {
   margin: 0 auto;
   max-width: $sm-break;
 }
@@ -65,6 +65,10 @@
 
   &.justify-end {
     justify-content: flex-end;
+  }
+
+  &.direction-column {
+    flex-direction: column;
   }
 
   &.no-wrap {

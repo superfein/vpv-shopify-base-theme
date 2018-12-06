@@ -1,0 +1,43 @@
+.reset {
+  &__container {
+    padding-top: 48px;
+    padding-bottom: 24px;
+    padding-left: 12px;
+    padding-right: 12px;
+    transition: opacity .3s cubic-bezier(.25, .1, .25, .1), visibility .3s cubic-bezier(.25, .1, .25, .1);
+    margin: 0 auto;
+
+    @media screen and (min-width: $sm-break) {
+      min-width: 375px;
+      max-width: 33%;
+    }
+
+    h2 {
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin-bottom: 12px;
+    }
+
+    &.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  &__form {
+    position: relative;
+    margin-bottom: 48px;
+    text-align: center;
+
+    input {
+      width: 100%;
+      margin-bottom: 24px;
+
+      &:not([type='submit']) {
+        border: 1px solid $black;
+      }
+    }
+  }
+}

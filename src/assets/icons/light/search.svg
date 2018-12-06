@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>white_search</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M16,9.25 C16,5.79845487 13.2015451,3 9.75,3 C6.29845487,3 3.5,5.79845487 3.5,9.25 C3.5,12.7015451 6.29845487,15.5 9.75,15.5 C13.2015451,15.5 16,12.7015451 16,9.25 Z M14.6632566,14.5811498 L21.3535534,21.2714466 C21.5488155,21.4667088 21.5488155,21.7832912 21.3535534,21.9785534 C21.1582912,22.1738155 20.8417088,22.1738155 20.6464466,21.9785534 L13.8964466,15.2285534 C13.8904053,15.2225121 13.8845509,15.2163546 13.8788834,15.2100882 C12.7071802,16.0233581 11.2842145,16.5 9.75,16.5 C5.74617013,16.5 2.5,13.2538299 2.5,9.25 C2.5,5.24617013 5.74617013,2 9.75,2 C13.7538299,2 17,5.24617013 17,9.25 C17,11.3582106 16.0999885,13.2563575 14.6632566,14.5811498 Z" id="path-1"></path>
+    </defs>
+    <g id="white_search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Mask" fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+    </g>
+</svg>

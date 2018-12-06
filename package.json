@@ -37,6 +37,9 @@
         "shopify-themekit": "^0.1.3"
     },
     "dependencies": {
-        "babel-core": "^6.26.3"
+        "animejs": "^2.2.0",
+        "babel-core": "^6.26.3",
+        "body-scroll-lock": "^2.5.10",
+        "swiper": "^4.4.2"
     }
 }

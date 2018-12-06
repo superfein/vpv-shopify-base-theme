@@ -1,0 +1,134 @@
+<!-- PROMO BAR -->
+{% if settings.promo_bar %}
+  <div id="promo-bar" class="promo-bar row align-center justify-center" style="background-color: {{ settings.promo_bar_color }}">
+    <p style="color: {{ settings.promo_bar_text_color }}">
+      {{ settings.promo_bar_text }} <span class="bold">{{ settings.promo_bar_code }}</span>
+    </p>
+    <svg id="promo-bar-x">
+      <use xlink:href="#light--x_small"/>
+    </svg>
+  </div>
+{% endif %}
+
+{%- include 'scripts.promo-bar' -%}
+
+<!-- DESKTOP NAV -->
+<div id="desktop-nav-wrapper" class="nav--wrapper__desktop display--tablet-hide fade-in--first--together">
+  <div class="top-bar-wrapper">
+    <div class="container--lg">
+      <div class="main-nav--desktop__grid">
+        <!-- Account, Search, Bag -->
+        <div class="nav--icons-wrapper row align-center justify-start no-pad">
+        </div>
+
+        <div class="nav--icons-wrapper row align-center justify-center no-pad">
+          <a href="/">
+            <img src="{{ settings.primary_logo | img_url: '36x' }}" alt="">
+          </a>
+        </div>
+
+        <div class="nav--icons-wrapper row align-center justify-end no-pad">
+          <div id="account-icon" class="wrapper">
+            <a class="icon-link" href="/account" title="Account">
+              <svg class="account">
+                <use xlink:href="#dark--account"/>
+              </svg>
+            </a>
+          </div>
+          <a id="desktop-search-icon" class="icon-link" title="Search">
+            <svg class="search">
+              <use xlink:href="#dark--search"/>
+            </svg>
+          </a>
+          <a id="global-cart-icon" class="icon-link" title="Bag" href="/cart">
+            <svg class="empty">
+              <use xlink:href="#dark--bag_empty"/>
+            </svg>
+            <span id="bag-count" class="bag-count a2 color-white mask--circle bg-red hidden">!</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="desktop-search" class="desktop-search__container hidden">
+    <div class="desktop-search__wrapper container-dynamic padding-top--xl padding-bottom--lger">
+      <div class="desktop-search__prompt">
+        Search by Keyword, Style, Model Number, etc.
+      </div>
+      <input id="desktop-search__input" type="text" name='q' class="desktop-search__input margin__top--md padding-top--md padding-bottom--md"/>
+      <svg id="desktop-search__x" class="desktop-search__x">
+        <use xlink:href="#dark--x_large"/>
+      </svg>
+    </div>
+  </div>
+  <div id="desktop-search__overlay" class="desktop-search__overlay bg--overlay pos--abs hidden"></div>
+  <div id="account-modal" class="nav--account-modal padding-sides--lg padding-top--lg padding-bottom--lg hidden">
+    <a class="h3 weight-medium spacing-normal" href="/account">
+      {%- if customer -%}
+        My Account
+      {%- else -%}
+        Log In
+      {%- endif -%}
+    </a>
+  </div>  
+  <div class="lower-nav--desktop__wrapper">
+    <div class="lower-nav--desktop bg--secondary pos--rel row justify-center align-center padding-bottom--sm padding-top--sm">
+        {% for link in linklists.main-menu.links %}
+          <div {% if link.links != blank %} data-name="{{ link.title }}" {% endif %} class="parent {% if link.links != blank %} parent-trigger padding-left--sm {% else %} padding-sides--md {% endif %}">
+            {% if link.links != blank %}
+              <span class="p--2 weight-medium spacing-normal" title="{{ link.title }}">
+                  <p class="display--inline margin-sides--sm cursor--pointer">
+                    {{ link.title }}
+                  </p>
+                  <svg class="nav--arrow" data-belongsto="{{ link.title }}">
+                     <use xlink:href="#dark--arrow_small_down"/>
+                  </svg>
+              </span>
+            {%- else -%}
+              <a class="p--2 weight-medium spacing-normal" href="{{ link.url }}" title="{{ link.title }}">
+                <p class="display--inline margin-sides--sm cursor--pointer">  
+                  {{ link.title }}
+                </p>  
+              </a>
+            {% endif %}
+            {% if link.links != blank %}
+              <div class="child desktop-child row justify-center padding-bottom--md padding-top--md bg--white hidden" data-parent="{{ link.title }}">
+                {% for child_link in link.links %}
+                  <div class="child-link__wrapper padding-sides--md {% if child_link.title == 'Sale' %} sale {% endif %} p--2">
+                    {% if child_link.title == 'Sale' %}
+                      <a class="link--hover-appear {% if child_link.title == 'Sale' %} color-red {% endif %} p--2 spacing-normal" href="{{ child_link.url }}" title="{{ link.title }} - {{ child_link.title }}">
+                        {{ child_link.title }}
+                      </a>
+                    {% else %}
+                      {{ child_link.title }}
+                    {% endif %}
+                    {% if child_link.links != blank %}
+                      <div class="grandchild">
+                        {% for grandchild_link in child_link.links %}
+                          <div class="grandchild-link__wrapper margin__bottom--sm">
+                            <a class="link--hover-appear p--2 weight-medium spacing-normal" href="{{ grandchild_link.url }}" title="{{ link.title }} - {{ child_link.title }} - {{ grandchild_link.title }}">
+                              {{ grandchild_link.title }}
+                            </a>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+    </div>
+  </div>
+  <div id="lower-nav--desktop__overlay" class="lower-nav--desktop__overlay bg--overlay pos--abs hidden"></div>
+</div>    
+
+
+{%- include 'mobile-nav' -%}
+
+
+<!-- GLOBAL CART -->
+
+{%- include 'global-cart' -%}
+</div>  
