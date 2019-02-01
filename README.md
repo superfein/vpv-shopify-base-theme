@@ -97,7 +97,7 @@ You may use liquid to reference assets from Shopify by wrapping your liquid in S
 
 ```
 a {
-  colour: #{'{{ settings.link_color }}'};
+  colour:#{'"{{ settings.link_color }}"'};
 }
 ```
 
