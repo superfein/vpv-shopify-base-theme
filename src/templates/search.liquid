@@ -1,0 +1,35 @@
+<script src="">
+
+</script>
+
+<div id="app" class="vue-form">
+
+</div>
+
+new Vue({
+  el: '#app',
+  components: { App },
+  template: '<App/>'
+})
+<script>
+
+export default {
+  name: 'HelloWorld',
+  data () {
+    return {
+      msg: 'Welcome to the Pound',
+      image: ''
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h1, h2 {
+  display: block;
+  z-index: 10;
+  font-weight: normal;
+  font-size: 30px;
+}
+</style>
