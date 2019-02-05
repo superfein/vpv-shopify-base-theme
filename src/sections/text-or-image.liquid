@@ -10,6 +10,12 @@
           "id": "block-text",
           "type": "textarea",
           "label": "Text Area"
+        },
+        {
+         "type": "color",
+         "id": "background_color",
+         "label": "Background color",
+         "default": "#ffffff"
         }
       ]
     },
@@ -33,7 +39,7 @@
 <div class="wrapper">
   {% case block.type %}
   {% when "text-block" %}
-    <h1 class="section alt col-2-lg col-4-md col-6-sm" style="height: 200px; color: green;" >
+    <h1 class="section alt col-2-lg col-4-md col-6-sm" style="height: 200px; background-color: {{block.settings.color}};" >
       {{ block.settings.block-text }}
     </h1>
   {% when "image-block" %}
