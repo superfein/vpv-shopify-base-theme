@@ -9,29 +9,39 @@ document.addEventListener('DOMContentLoaded', () => {
   data: {
       msg: 'The dogs:',
       checked: true,
-      image: '',
       picked: '',
-      checkedStatement: ''
+      checkedStatement: '',
+      image: '',
+      dogBreed: '',
+      bredFor: '',
+      temperament: '',
+      lifeSpan: '',
+      breedGroup: ''
   },
   mounted: function() {
     console.log(this.$el);
+    this.getInfo()
   },
   methods: {
-    resetImage: function(json) {
-      this.image = json.message
+    resetData: function(json) {
+      this.image = json[0].url
+      this.dogBreed = json[0].breeds[0].name
+      this.bredFor = json[0].breeds[0].bred_for
+      this.lifeSpan = json[0].breeds[0].life_span
+      this.temperament = json[0].breeds[0].temperament
+      this.breedGroup = json[0].breeds[0].breed_group
     },
      getInfo: function() {
-       console.log('clicked');
-      fetch('https://dog.ceo/api/breeds/image/random')
+      fetch('https://api.thedogapi.com/v1/images/search')
       .then(resp => resp.json())
-      // .then(json => console.log(json.message))
-      .then(json => this.resetImage(json))
+      // .then(json => console.log(json[0].breeds[0].breed_group))
+      .then(json => this.resetData(json))
     },
     checked: function() {
-      // if (this.picked === 'Bad') {
-      //   alert('False!')
-      // }
-      // console.log('');
+      if (!this.checked) {
+        alert('False!')
+      }
+      console.log('');
     }
   },
   delimiters: ['${', '}']
@@ -40,20 +50,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
 </script>
 
+<!-- CMS Sections inline Section block CMS. Admin ability to add blocks,
+either image or text and control image or source. Add as many as they want
+
+Get dog Api info back with async data hook   -->
+
+
 
 <div id="app" class="image">
   <button class="image-button" v-on:click="getInfo"> Click Here</button>
   <div v-if="image !== ''">
-    <img class="dog__image--new" :src="image" ></img>
-  </div>
-  <div v-else>
-    <img class="dog__image-- default" src='https://images.dog.ceo/breeds/terrier-border/n02093754_909.jpg' ></img>
     <img class="dog__image" :src="image" ></img>
   </div>
-  <p>Is this a good dog?</p>
-  <!-- <input v-on:click="checked" type="checkbox" id="checkbox" v-model="checked">
-  <label for="checkbox">${checked}</label> -->
-  <div class="">
+  <!-- <div v-else>
+    <img class="dog__image-- default" src='https://images.dog.ceo/breeds/terrier-border/n02093754_909.jpg' ></img>
+    <img class="dog__image" :src="image" ></img>
+  </div> -->
+  <p>Is this a good ${dogBreed}?</p>
+  <input v-on:click="checked" type="checkbox" id="checkbox" v-model="checked">
+  <label for="checkbox">${checked}</label>
+  <div class="stats">
+    <ul>
+      <li>
+        Bred For ${bredFor}
+      </li>
+      <li>
+        Lifespan: ${lifeSpan}
+      </li>
+      <li>
+        Breed Group: ${breedGroup}
+      </li>
+      <li>
+        Temperament: ${temperament}
+      </li>
+    </ul>
+  </div>
+  <!-- <div class="">
     <input type="radio" id="good" value="Good" v-model="picked">
     <label for="good">Good</label>
     <br>
@@ -62,6 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
     <br>
     <span>Picked: {{ picked }}</span>
 
-  </div>
+  </div> -->
 
 </div>

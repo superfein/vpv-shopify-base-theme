@@ -1,0 +1,44 @@
+{% schema %}
+{
+  "name": "text or image",
+  "blocks": [
+    {
+      "type": "text-block",
+      "name": "Text Block",
+      "settings": [
+        {
+          "id": "block-text",
+          "type": "textarea",
+          "label": "Text Area"
+        }
+      ]
+    },
+    {
+      "type": "image-block",
+      "name": "Image Block",
+      "settings": [
+        {
+          "id": "block-image",
+          "type": "image_picker",
+          "label": "Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% for block in section.blocks %}
+
+<div class="wrapper">
+  {% case block.type %}
+  {% when "text-block" %}
+    <h1 class="section alt col-2-lg col-4-md col-6-sm" style="height: 200px; color: green;" >
+      {{ block.settings.block-text }}
+    </h1>
+  {% when "image-block" %}
+      <img class="section col-2-lg col-4-md col-6-sm" src="{{block.settings.block-image | img_url: 'medium'}}">
+  {% endcase %}
+</div>
+
+{% endfor %}

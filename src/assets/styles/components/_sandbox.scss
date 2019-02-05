@@ -32,6 +32,7 @@
 .section {
   background-color: #99ff99;
   border-radius: 20px;
+  text-align: center;
 
   &.alt {
     background-color: #80f280;
@@ -43,24 +44,34 @@
 .dog {
   &__image {
     max-width: 500px;
-      box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
-
-    &--default {
-      width: 50%;
-    }
-
-    &--new {
-      width: 50%;
-      box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
-    }
+    box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+    justify-content: center;
+    max-width: 500px;
+    // &--default {
+    //   width: 50%;
+    // }
+    //
+    // &--new {
+    //   width: 50%;
+    //   box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+    // }
   }
 
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  white-space: normal;
+  width: 500px;
+  color: green;
 }
 
 
 .image {
   display: flex;
-  background-color: #80f280;
+  // background-color: #80f280;
+  background-image: linear-gradient(#b2f7b2, #80f280);
   margin: 3%;
   border-radius: 20px;
   align-items: center;
