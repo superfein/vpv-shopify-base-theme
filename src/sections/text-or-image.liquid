@@ -1,6 +1,8 @@
 {% schema %}
 {
   "name": "text or image",
+  "settings": [
+],
   "blocks": [
     {
       "type": "text-block",
@@ -39,7 +41,7 @@
 <div class="wrapper">
   {% case block.type %}
   {% when "text-block" %}
-    <h1 class="section alt col-2-lg col-4-md col-6-sm" style="height: 200px; background-color: {{block.settings.color}};" >
+    <h1 class="section alt col-2-lg col-4-md col-6-sm" style="height: 200px; background-color: {{block.settings.background_color}};" >
       {{ block.settings.block-text }}
     </h1>
   {% when "image-block" %}
