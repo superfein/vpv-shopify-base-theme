@@ -67,8 +67,10 @@ Get dog Api info back with async data hook   -->
     <img class="dog__image" :src="image" ></img>
   </div> -->
   <p>Is this a good ${dogBreed}?</p>
-  <input v-on:click="checked" type="checkbox" id="checkbox" v-model="checked">
-  <label for="checkbox">${checked}</label>
+  <div class="checkbox">
+    <input v-on:click="checked" type="checkbox" id="checkbox" v-model="checked">
+    <label for="checkbox">${checked}</label>
+  </div>
   <div class="stats">
     <ul>
       <li>

@@ -1,8 +1,6 @@
 {% schema %}
 {
   "name": "text or image",
-  "settings": [
-],
   "blocks": [
     {
       "type": "text-block",
@@ -17,7 +15,12 @@
          "type": "color",
          "id": "background_color",
          "label": "Background color",
-         "default": "#ffffff"
+         "default": "#99ff99"
+        },
+        {
+         "type": "font_picker",
+         "id": "new_font",
+         "label": "Font"
         }
       ]
     },
@@ -41,7 +44,8 @@
 <div class="wrapper">
   {% case block.type %}
   {% when "text-block" %}
-    <h1 class="section alt col-2-lg col-4-md col-6-sm" style="height: 200px; background-color: {{block.settings.background_color}};" >
+    <h1 class="section alt col-2-lg col-4-md col-6-sm" style="height: 200px; background-color: {{block.settings.background_color}};
+    font: {{block.settings.new_font}};" >
       {{ block.settings.block-text }}
     </h1>
   {% when "image-block" %}
