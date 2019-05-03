@@ -2,3 +2,5 @@ node_modules
 dist
 .cache
 config/settings_data.json
+config.yml
+bs-config.js
