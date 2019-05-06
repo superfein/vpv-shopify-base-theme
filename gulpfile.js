@@ -76,7 +76,7 @@ function watch_assets(done) {
     done();
 }
 
-let watch_all_assets = gulp.series(assets, sprites, watch_assets, watch_sprites);
+let watch_all_assets = gulp.series(assets, watch_assets);
 
 // Template files
 function liquid() {
@@ -208,7 +208,6 @@ function theme_update(done) {
 let build_commands = [
     set_prod,
     clear,
-    sprites,
     assets,
     sass,
     liquid,
