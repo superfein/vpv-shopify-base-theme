@@ -1,0 +1,31 @@
+{%- assign the_title = product.title -%}
+{%- assign the_price = product.price | money -%}
+{%- capture the_price_range -%} {{ product.price_min | money }} - {{ product.price_max | money }} {%- endcapture -%}
+{%- assign the_description = product.description -%}
+
+<div class="pdp row justify-around">
+  <div class="images-container col-12 col-6-sm">
+    <img src="{{product | img_url}}" alt="">
+  </div>
+  <div class="content-container col-12 col-6-sm">
+    <div class="product-title">
+      {{the_title}}
+    </div>
+    <div class="product-price">
+      {%- if product.price_varies -%}
+        {{ the_price_range }}
+      {%- else -%}
+        {{ the_price }}
+      {%- endif -%}
+    </div>
+    {%- if product.description != "" -%}
+    <div class="product-description">
+      {{ the_description }}
+    </div>
+    {%- endif -%}
+
+    {%- unless product.has_only_default_variant -%}
+      {% include 'pdp-variants' %}
+    {%- endunless -%}
+  </div>
+</div>
