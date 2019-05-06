@@ -31,15 +31,12 @@
         "gulp-replace": "^1.0.0",
         "gulp-sass": "^4.0.1",
         "gulp-shopify-theme": "^1.1.3",
-        "gulp-svg-sprite": "^1.4.0",
         "node-sass": "^4.9.0",
         "parcel-bundler": "^1.8.1",
         "shopify-themekit": "^0.1.3"
     },
     "dependencies": {
-        "animejs": "^2.2.0",
         "babel-core": "^6.26.3",
-        "body-scroll-lock": "^2.5.10",
         "swiper": "^4.4.2"
     }
 }
