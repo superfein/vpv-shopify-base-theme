@@ -52,6 +52,8 @@ function assets() {
 function watch_assets(done) {
     let globs = [
         'src/assets/**/*',
+        '!src/assets/{scripts,styles}',
+        '!src/assets/{scripts,styles}/**/*'
     ];
 
     let watcher = gulp.watch(globs);
