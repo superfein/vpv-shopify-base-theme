@@ -37,6 +37,7 @@
     },
     "dependencies": {
         "babel-core": "^6.26.3",
-        "swiper": "^4.4.2"
+        "swiper": "^4.4.2",
+        "vue": "^2.6.10"
     }
 }
