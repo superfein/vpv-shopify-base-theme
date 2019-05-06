@@ -3,7 +3,6 @@ const gulp = require('gulp');
 const flatten = require('gulp-flatten');
 const rename = require('gulp-rename');
 const changed = require('gulp-changed');
-const svg_sprite = require('gulp-svg-sprite');
 const browser_sync = require('browser-sync').create();
 const bs_config = require('./bs-config.js');
 const Bundler = require('parcel-bundler');
@@ -42,41 +41,9 @@ function sync(done) {
     done();
 }
 
-// Sprite sheet
-const sprite_config = {
-    mode: {
-        symbol: {
-            dest: '',
-            inline: true,
-            sprite: 'icons.liquid',
-        }
-    },
-    shape: {
-        transform: [{
-            svgo: {
-                plugins: [
-                    { removeViewBox: false },
-                    { removeDimensions: true }
-                ]
-            }
-        }]
-    }
-};
-
-function sprites() {
-    return gulp.src('src/assets/icons/**/*.svg')
-        .pipe(svg_sprite(sprite_config))
-        .pipe(gulp.dest('src/snippets'));
-};
-
-function watch_sprites(done) {
-    gulp.watch('src/assets/icons/**/*.svg', sprites);
-    done();
-}
-
 // Assets
 function assets() {
-    return gulp.src(['src/assets/**/*', '!src/assets/{scripts,styles,icons}/**/*'])
+    return gulp.src(['src/assets/**/*'])
         .pipe(changed('dist'))
         .pipe(flatten())
         .pipe(gulp.dest('dist/assets'));
@@ -85,8 +52,6 @@ function assets() {
 function watch_assets(done) {
     let globs = [
         'src/assets/**/*',
-        '!src/assets/{scripts,styles,icons}',
-        '!src/assets/{scripts,styles,icons}/**/*'
     ];
 
     let watcher = gulp.watch(globs);
@@ -111,7 +76,7 @@ function watch_assets(done) {
     done();
 }
 
-let watch_all_assets = gulp.series(assets, sprites, watch_assets, watch_sprites);
+let watch_all_assets = gulp.series(assets, watch_assets);
 
 // Template files
 function liquid() {
@@ -243,7 +208,6 @@ function theme_update(done) {
 let build_commands = [
     set_prod,
     clear,
-    sprites,
     assets,
     sass,
     liquid,

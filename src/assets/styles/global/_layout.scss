@@ -1,39 +1,4 @@
 // Layout styles
 body {
-  position: relative;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
 
-  &.fixed {
-    @media screen and (max-width: $lg-break-max) {
-      position: fixed;
-    }
-  }
-
-  &.fixed-desktop {
-    position: fixed;
-  }
-}
-
-#content_for_layout {
-  min-height: calc(100vh -96px);
-  padding-top: 96px;
-  width: 100vw;
-
-  @media screen and (min-width: $lg-break) {
-    padding-top: 156px;
-  }
-}
-
-.errors {
-  margin: 12px 0;
-  color: $error;
-
-  a {
-    color: $error;
-  }
-
-  li {
-    color: $error;
-    list-style-type: none;
-  }
 }

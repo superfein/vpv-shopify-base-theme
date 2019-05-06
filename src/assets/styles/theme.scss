@@ -16,10 +16,6 @@
 @import 'global/ui-elements';
 //
 // // Components
-@import 'components/nav';
-@import 'components/footer';
-@import 'components/promo';
-@import 'components/icons';
 //
 // // Pages
 @import 'pages/index';
@@ -36,5 +32,6 @@
 @import 'pages/search';
 @import 'pages/blog';
 
-// Vendor
+// Vendor 
+// example with Swiper SCSS
 @import 'vendor/swiper';
