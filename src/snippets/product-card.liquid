@@ -1,0 +1,21 @@
+{%- assign the_url = product.url -%}
+{%- assign the_img_url = product | img_url -%}
+{%- assign the_title = product.title -%}
+{%- assign the_price = product.price | money -%}
+{%- capture the_price_range -%} {{ product.price_min | money }} - {{ product.price_max | money }} {%- endcapture -%}
+
+<div class="product-card">
+  <a href="{{ the_url }}">
+    <img class="image container--lg" src="{{ the_img_url }}" alt="">
+  </a>
+  <div class="title">
+    {{ the_title }}
+  </div>
+  <div class="price">
+    {% if product.price_varies %}
+      {{ the_price_range }}
+    {% else %}
+      {{ the_price }}
+    {% endif %}
+  </div>
+</div>

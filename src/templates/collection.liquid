@@ -1,0 +1,8 @@
+<h1>{{ collection.title }}</h1>
+<div class="plp row justify-between">
+  {%- for product in collection.products -%}
+    <div class="col-12 col-4-sm">
+      {% include 'product-card' %}
+    </div>
+  {%- endfor -%}
+</div>
