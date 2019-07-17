@@ -12,14 +12,14 @@ or if you dont have SSH setup with github:
 
 Next, run `npm install` to install required dependencies.
 
-Edit the `config.yml` to use your correct password and theme id's. Your production definition block **must** be called "production" for the `deploy` command to work properly. For the theme commands to work properly, make sure you have a yamel entry named "development" and one named "production". Detailed instructions on setting up `config.yml` can be found [here.](https://shopify.github.io/themekit/configuration)
+Rename the `config-example.yml` to `config.yml` and edit to include to use your correct password and theme id's. Your production definition block **must** be called "production" for the `deploy` command to work properly. For the theme commands to work properly, make sure you have a yamel entry named "development" and one named "production". Detailed instructions on setting up `config.yml` can be found [here.](https://shopify.github.io/themekit/configuration)
 
-Finally, update the `proxy` value in the `bs-config.js` file to correctly proxy your live Shopify domain to your local BrowserSync server during development.
+Finally, update the `proxy` value in the `bs-config-example.js` file to correctly proxy your live Shopify domain to your local BrowserSync server during development and rename it `bs-config.js`.
 
 ```
 module.exports = {
   "files": "theme.update",
-  "proxy": "https://mynewstore.myshopify.com/"
+  "proxy": "https://mynewstore.myshopify.com?preview_theme_id=THEME_ID"
 };
 ```
 
@@ -62,27 +62,6 @@ Directory for all theme assets. Depending on the type of file, they will be proc
 
 ### src/assets/fonts
 Nothing special here, just a commonly used asset folder that's included. Fonts will be flattened/migrated to the `dist/assets` folder the same way images are.
-
-### src/assets/icons
-You can put SVG files here and they will be optimized with SVGO and compiled into a single sprite sheet in 'src/snippets/icons.liquid'. The sprite sheet plugin takes the file name and makes that the symbols' id. If you nest icons in folders, the folder names will be appended to the file name with `--`.
-
-For the SVGs to work properly, make sure they have a `viewPort` property on the `<svg>` element.
-
-#### Usage:
-
-For `src/assets/icons/my-svg.svg`
-```
-<svg>
-    <use xlink:href="#my-svg"/>
-</svg>
-```
-
-For `src/assets/icons/dark/my-svg.svg`
-```
-<svg>
-    <use xlink:href="#dark--my-svg"/>
-</svg>
-```
 
 ### src/assets/images
 Pretty simple - images go here, you may nest folders, and they will be flattened and migrated to the `dist/assets` folder.
@@ -136,6 +115,6 @@ You can also deploy to another theme. Just name whichever theme you would like t
 
 ### update
 - Runs the build command
-- Updates all changed files on the "development" theme
+- Updates all changed files on the "production" theme
 
 You can also update another theme. Same as above, just name whichever theme you would like to update, "production". To avoid conflict, make sure all theme's are unique. You can only have 1 theme named "production" at a time.
