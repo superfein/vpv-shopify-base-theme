@@ -4,3 +4,4 @@ dist
 config/settings_data.json
 config.yml
 bs-config.js
+.DS_Store
