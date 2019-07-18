@@ -80,7 +80,10 @@
   padding: $gutter;
   box-sizing: border-box;
   width: 100%;
-
+  
+  &.width-auto {
+    width: auto;
+  }
   &.align-top {
     align-self: flex-start;
   }
@@ -102,10 +105,6 @@
       order: $i;
     }
   }
-}
-
-.col-auto {
-  width: auto;
 }
 // Generate classes based on grid variable
 @for $i from 1 through $number-of-columns {

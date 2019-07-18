@@ -1,0 +1,44 @@
+$spacing-limit: 6;
+$spacing-key: (
+  "top": "top",
+  "right": "right",
+  "left": "left",
+  "btm": "bottom",
+  "all": null,
+  "vert": null,
+  "horiz": null
+);
+
+@mixin spacing-loop($property, $space, $value) {
+  @each $poskey, $posvalue in $spacing-key {
+    &-#{$poskey}-#{$space} {
+      @if $poskey == "all" {
+        #{$property}: $value;
+      }
+      @else if $poskey == "vert" {
+        #{$property}-top: $value;
+        #{$property}-bottom: $value;
+      }
+      @else if $poskey == "horiz" {
+        #{$property}-right: $value;
+        #{$property}-left: $value;
+      }
+      @else {
+        #{$property}-#{$posvalue}: $value;
+      }
+    }
+  }
+}
+
+@for $space from 0 through $spacing-limit {
+  $value: $space + rem;
+  .padding {
+  	@include spacing-loop("--", $space, $value);
+  }
+
+  .margin {
+  	@include spacing-loop("--", $space, $value);
+  }
+}
+
+// Usage: padding-all--2,margin-top--4, etc
