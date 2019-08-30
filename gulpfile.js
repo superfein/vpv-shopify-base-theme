@@ -43,10 +43,10 @@ function sync(done) {
 
 // Assets
 function assets() {
-    return gulp.src(['src/assets/**/*'])
-        .pipe(changed('dist'))
-        .pipe(flatten())
-        .pipe(gulp.dest('dist/assets'));
+  return gulp.src(['src/assets/**/*', '!src/assets/{scripts,styles}/**/*'])
+      .pipe(changed('dist'))
+      .pipe(flatten())
+      .pipe(gulp.dest('dist/assets'));
 }
 
 function watch_assets(done) {

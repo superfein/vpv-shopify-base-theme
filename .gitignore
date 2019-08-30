@@ -1,6 +1,11 @@
 node_modules
 dist
 .cache
-config/settings_data.json
+src/config/settings_data.json
+config-example.yml
+bs-config-example.js
 config.yml
 bs-config.js
+.DS_Store
+package-lock.json
+yarn.lock
