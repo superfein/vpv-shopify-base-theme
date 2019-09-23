@@ -48,7 +48,7 @@
           "https:{{ product.featured_image.src | img_url: image_size }}"
         ],
       {% endif %}
-      "description": "{{ product.description | strip_html | escape }}",
+      "description": "{{ product.description | strip_html | escape | newline_to_br | strip_newlines }}",
       {% if current_variant.sku != blank %}
         "sku": "{{ current_variant.sku }}",
       {% endif %}
@@ -109,7 +109,7 @@
       },
       "headline": "{{ article.title }}",
       {% if article.excerpt != blank %}
-        "description": "{{ article.excerpt | strip_html }}",
+        "description": "{{ article.excerpt | strip_html | newline_to_br | strip_newlines }}",
       {% endif %}
       {% if article.image %}
         {% assign image_size = article.image.width | append: 'x' %}
