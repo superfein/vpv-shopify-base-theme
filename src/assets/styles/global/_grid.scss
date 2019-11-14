@@ -1,31 +1,32 @@
-.container--lg {
+.container--l {
+  max-width: $width--l;
   margin: 0 auto;
-  max-width: $lg-break;
 }
 
-.container--md {
+.container--m {
+  max-width: $width--m;
   margin: 0 auto;
-  max-width: $md-break;
 }
 
-.container--sm {
+.container--s {
+  max-width: $width--s;
   margin: 0 auto;
-  max-width: $sm-break;
 }
 
 @mixin width($width) {
   width: ($width / $number-of-columns) * 100%;
 }
+
 @mixin offset-width($width) {
   margin-left: ($width / $number-of-columns) * 100%;
 }
 
 .row {
   display: flex;
-  box-sizing: border-box;
   flex-wrap: wrap;
-  padding-left: $gutter;
   padding-right: $gutter;
+  padding-left: $gutter;
+  box-sizing: border-box;
 
   &.align-top {
     align-items: flex-start;
@@ -48,7 +49,7 @@
   }
 
   &.no-pad {
-      padding: 0;
+    padding: 0;
   }
 
   &.justify-around {
@@ -75,15 +76,17 @@
     flex-wrap: nowrap;
   }
 }
+
 // Base class
 [class*="col-"] {
+  width: 100%;
   padding: $gutter;
   box-sizing: border-box;
-  width: 100%;
-  
+
   &.width-auto {
     width: auto;
   }
+
   &.align-top {
     align-self: flex-start;
   }
@@ -106,6 +109,7 @@
     }
   }
 }
+
 // Generate classes based on grid variable
 @for $i from 1 through $number-of-columns {
   .col-#{$i} {
@@ -116,38 +120,42 @@
     @include offset-width($i);
   }
 }
-// sm
-@media screen and (min-width: $sm-break) {
+
+// mbl
+@media screen and (min-width: $break--mbl) {
   @for $i from 1 through $number-of-columns {
-    .col-#{$i}-sm {
+    .col-#{$i}-mbl {
       @include width($i);
     }
 
-    .offset-#{$i}-sm {
+    .offset-#{$i}-mbl {
       @include offset-width($i);
     }
   }
 }
-// md
-@media screen and (min-width: $md-break) {
+
+// tblt
+@media screen and (min-width: $break--tblt) {
   @for $i from 1 through $number-of-columns {
-    .col-#{$i}-md {
+    .col-#{$i}-tblt {
       @include width($i);
     }
 
-    .offset-#{$i}-md {
+    .offset-#{$i}-tblt {
       @include offset-width($i);
     }
   }
 }
-// lg
-@media screen and (min-width: $lg-break) {
+
+// dsktp
+@media screen and (min-width: $break--dsktp) {
   @for $i from 1 through $number-of-columns {
-    .col-#{$i}-lg {
+    .col-#{$i}-dsktp {
       @include width($i);
     }
+
     // base offsets
-    .offset-#{$i}-lg {
+    .offset-#{$i}-dsktp {
       @include offset-width($i);
     }
   }

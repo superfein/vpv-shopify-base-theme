@@ -4,27 +4,32 @@
 <link rel="canonical" href="{{ canonical_url }}">
 
 {% capture seo_title %}
-    {{ page_title }}
-    {% if current_tags %}
-        {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
-    {% endif %}
-    {% if current_page != 1 %}
-        &ndash; {{ 'general.meta.page' | t: page: current_page }}
-    {% endif %}
-    {% unless page_title contains shop.name %}
-        &ndash; {{ shop.name }}
-    {% endunless %}
+  {{ page_title }}
+  {% if current_tags %}
+    {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+  {% endif %}
+  {% if current_page != 1 %}
+    &ndash; {{ 'general.meta.page' | t: page: current_page }}
+  {% endif %}
+  {% unless page_title contains shop.name %}
+    &ndash; {{ shop.name }}
+  {% endunless %}
 {% endcapture %}
 
 <title>{{ seo_title }}</title>
 
 {% if page_description %}
-    <meta name="description" content="{{ page_description | escape }}">
+  <meta name="description" content="{{ page_description | escape }}">
 {% endif %}
 
-{% include 'scripts' %}
-
+<!-- Social Meta Tags -->
 {% include 'social-meta-tags' %}
+<!-- END Social Meta Tags -->
+
+<!-- Scripts -->
+{% include 'scripts' %}
+<!-- END Scripts -->
 
 <!-- Stylesheets -->
 {{ 'theme.css' | asset_url | stylesheet_tag }}
+<!-- END Stylesheets -->

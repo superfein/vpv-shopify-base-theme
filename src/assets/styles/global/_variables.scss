@@ -7,16 +7,107 @@ $gutter: 12px;
 $number-of-columns: 12;
 
 // Breakpoints
-$xs-break: 375px;
-$sm-break: 768px;
-$md-break: 992px;
-$lg-break: 1188px;
-$lg-break-max: 1187px;
-$lg-break-min: 1188px;
+$break--mbl: 520px;
+$break--tblt: 872px;
+$break--dsktp: 1024px;
+
+// Container Widths
+$width--s: 520px;
+$width--m: 872px;
+$width--l: 1024px;
 
 /*==== Colors ===*/
-$primary-color: #{'"{{ settings.primary_color }}"'};
-$secondary-color: #{'"{{ settings.secondary_color }}"'};
+$color--white: #FFFFFF;
+$color--black: #000000;
+$color--transparent: rgba(0, 0, 0, 0);
 
-/*==== Typography ====*/
-$base-font-size: #{'"{{ settings.base_font_size }}"'};
+$color--primary--lighter: #B5A7F2;
+$color--primary--light: #927DEC;
+$color--primary: #6849E3;
+$color--primary--dark: #4F2EDB;
+$color--primary--darker: #4227B1;
+
+$color--dark--lighter: #63607C;
+$color--dark--light: #4E4B61;
+$color--dark: #2D2B3A;
+$color--dark--dark: #232029;
+$color--dark--darker: #000000;
+
+$color--light--lighter: #FFFFFF;
+$color--light--light: #F8F8F8;
+$color--light: #F3F3F3;
+$color--light--dark: #D0D0D0;
+$color--light--darker: #B1B1B1;
+
+$color--darken-1: rgba($color--dark, 0.1);
+$color--darken-2: rgba($color--dark, 0.2);
+
+$color--lighten-1: rgba($color--light, 0.05);
+$color--lighten-2: rgba($color--light, 0.1);
+$color--lighten-3: rgba($color--light, 0.5);
+
+$color--type: $color--dark--dark;
+$color--error: #DB2B39;
+
+$color--test-red: rgba(255, 0, 0, 0.5);
+$color--test-orange: rgba(255, 128, 0, 0.5);
+$color--test-yellow: rgba(255, 255, 0, 0.5);
+$color--test-green: rgba(128, 255, 0, 0.5);
+$color--test-blue: rgba(0, 128, 255, 0.5);
+$color--test-purple: rgba(128, 0, 255, 0.5);
+$color--test-pink: rgba(255, 128, 255, 0.1);
+
+
+/*==== Typestyles ====*/
+$type--base--mbl: 16px;
+$type--base--tblt: 16px;
+$type--base--dsktp: 20px;
+
+$type-stack--sans: (Helvetica, Arial, sans-serif);
+$type-stack--serif: (Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", TimesNewRoman, "Times New Roman", serif);
+$type-stack--mono: ("Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace);
+
+$type--display: ("Apercu", $type-stack--sans);
+$type--body: ("Maison Neue", $type-stack--sans);
+// $type--alt: ;
+
+/*==== Spacing ====*/
+$space--base--mbl: 0.625rem;
+$space--base--tblt: 1rem;
+$space--base--dsktp: 1rem;
+
+$space--xxxl--mbl: calc(#{$space--base--mbl} * 8.5);
+$space--xxl--mbl: calc(#{$space--base--mbl} * 5);
+$space--xl--mbl: calc(#{$space--base--mbl} * 3.25);
+$space--l--mbl: calc(#{$space--base--mbl} * 2);
+$space--m--mbl: calc(#{$space--base--mbl} * 1.5);
+$space--s--mbl: calc(#{$space--base--mbl} * 1);
+$space--xs--mbl: calc(#{$space--base--mbl} * 0.5);
+$space--xxs--mbl: calc(#{$space--base--mbl} * 0.4);
+$space--xxxs--mbl: calc(#{$space--base--mbl} * 0.3);
+
+$space--xxxl--tblt: calc(#{$space--base--tblt }* 13.6);
+$space--xxl--tblt: calc(#{$space--base--tblt }* 8.4);
+$space--xl--tblt: calc(#{$space--base--tblt }* 5.2);
+$space--l--tblt: calc(#{$space--base--tblt }* 3.2);
+$space--m--tblt: calc(#{$space--base--tblt }* 2);
+$space--s--tblt: calc(#{$space--base--tblt }* 1.2);
+$space--xs--tblt: calc(#{$space--base--tblt }* 0.8);
+$space--xxs--tblt: calc(#{$space--base--tblt }* 0.6);
+$space--xxxs--tblt: calc(#{$space--base--tblt }* 0.4);
+
+$space--xxxl--dsktp: calc(#{$space--base--dsktp} * 17);
+$space--xxl--dsktp: calc(#{$space--base--dsktp} * 10.5);
+$space--xl--dsktp: calc(#{$space--base--dsktp} * 6.5);
+$space--l--dsktp: calc(#{$space--base--dsktp} * 4);
+$space--m--dsktp: calc(#{$space--base--dsktp} * 2);
+$space--s--dsktp: calc(#{$space--base--dsktp} * 1.5);
+$space--xs--dsktp: calc(#{$space--base--dsktp} * 1);
+$space--xxs--dsktp: calc(#{$space--base--dsktp} * 0.75);
+$space--xxxs--dsktp: calc(#{$space--base--dsktp} * 0.5);
+
+/*==== Transitions ====*/
+$bezier: cubic-bezier(0.23, 1, 0.32, 1); // easeOutQuint
+$timing: 0.4s;
+$base-transition: $timing $bezier;
+$base-transition--delay: $timing $bezier $timing;

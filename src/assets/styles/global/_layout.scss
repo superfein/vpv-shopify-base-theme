@@ -1,4 +1,12 @@
 // Layout styles
 body {
+  background-color: $color--dark--dark;
 
+  #content-for-layout {
+    min-height: 100vh;
+    padding: 0;
+    background-color: $color--light;
+  }
 }
+
+[v-cloak] { display: none; }

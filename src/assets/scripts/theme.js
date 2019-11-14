@@ -1,2 +1,3 @@
-import './polyfill.js'
-import './some-module.js'
+import './dev-theme-preview';
+import './polyfill';
+import './cart';

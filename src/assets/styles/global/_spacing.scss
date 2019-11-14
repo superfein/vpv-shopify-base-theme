@@ -1,0 +1,97 @@
+.margin-bottom {
+  &--xxxl {
+    margin-bottom: $space--xxxl--mbl;
+    
+    @media screen and (min-width: $break--tblt) {
+      margin-bottom: $space--xxxl--tblt;
+    }
+  
+    @media screen and (min-width: $break--dsktp) {
+      margin-bottom: $space--xxxl--dsktp;
+    }
+  }
+
+  &--xxl {
+    margin-bottom: $space--xxl--mbl;
+    
+    @media screen and (min-width: $break--tblt) {
+      margin-bottom: $space--xxl--tblt;
+    }
+  
+    @media screen and (min-width: $break--dsktp) {
+      margin-bottom: $space--xxl--dsktp;
+    }
+  }
+
+  &--xl {
+    margin-bottom: $space--xl--mbl;
+    
+    @media screen and (min-width: $break--tblt) {
+      margin-bottom: $space--xl--tblt;
+    }
+  
+    @media screen and (min-width: $break--dsktp) {
+      margin-bottom: $space--xl--dsktp;
+    }
+  }
+
+  &--l {
+    margin-bottom: $space--l--mbl;
+    
+    @media screen and (min-width: $break--tblt) {
+      margin-bottom: $space--l--tblt;
+    }
+  
+    @media screen and (min-width: $break--dsktp) {
+      margin-bottom: $space--l--dsktp;
+    }
+  }
+
+  &--m {
+    margin-bottom: $space--m--mbl;
+    
+    @media screen and (min-width: $break--tblt) {
+      margin-bottom: $space--m--tblt;
+    }
+  
+    @media screen and (min-width: $break--dsktp) {
+      margin-bottom: $space--m--dsktp;
+    }
+  }
+
+  &--s {
+    margin-bottom: $space--s--mbl;
+    
+    @media screen and (min-width: $break--tblt) {
+      margin-bottom: $space--s--tblt;
+    }
+  
+    @media screen and (min-width: $break--dsktp) {
+      margin-bottom: $space--s--dsktp;
+    }
+  }
+
+  &--xs {
+    margin-bottom: $space--xs--mbl;
+    
+    @media screen and (min-width: $break--tblt) {
+      margin-bottom: $space--xs--tblt;
+    }
+  
+    @media screen and (min-width: $break--dsktp) {
+      margin-bottom: $space--xs--dsktp;
+    }
+  }
+
+  &--xxs {
+    margin-bottom: $space--xxs--mbl;
+    
+    @media screen and (min-width: $break--tblt) {
+      margin-bottom: $space--xxs--tblt;
+    }
+  
+    @media screen and (min-width: $break--dsktp) {
+      margin-bottom: $space--xxs--dsktp;
+    }
+  }
+}
