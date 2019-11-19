@@ -11,7 +11,6 @@ compiler.run((err, res) => {
   if (err) {
     return err;
   }
+  log(chalk.bgHex('#00b894').white('[Build successful]'));
   return res;
 });
-
-log(chalk.bgHex('#00b894').white('[Build successful]'));
