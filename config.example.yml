@@ -1,0 +1,10 @@
+production:
+  password: xx
+  theme_id: "xx"
+  store: xx.myshopify.com
+  ignore_files:
+    - settings_data.json
+    - src
+    - node_modules
+    - package.json
+    - package-lock.json
