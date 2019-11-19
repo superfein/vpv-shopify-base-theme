@@ -1,4 +1,5 @@
 
+import './Build';
 import chalk from 'chalk';
 
 const { log } = console;
@@ -15,7 +16,7 @@ log(chalk.bgHex('#fdcb6e').black('[WARNING: STOPPING THE DEPLOYMENT PROCESS CAN 
 
 themeKit
   .command('deploy', {
-    env: 'production',
+    env: 'theme',
     dir: `${PATHS.output}`,
   })
   .then(() => {

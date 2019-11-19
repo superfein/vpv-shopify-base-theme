@@ -14,11 +14,13 @@ const PATHS = {
   output: path.resolve(__dirname, './dist'),
 };
 
-const copyDir = [
-  { from: `${PATHS.src}/config`, to: `${PATHS.output}/config`, context: './src' },
-  { from: `${PATHS.src}/layout`, to: `${PATHS.output}/layout`, context: './src' },
-  { from: `${PATHS.src}/templates`, to: `${PATHS.output}/templates`, context: './src' },
-];
+const copyDir = [];
+const DIR = ['config', 'layout', 'locales', 'sections', 'snippets', 'templates'];
+const appendDir = (dir) => {
+  const temp = { from: `${PATHS.src}/${dir}`, to: `${PATHS.output}/${dir}`, context: './src' };
+  copyDir.push(temp);
+};
+DIR.forEach((dir) => appendDir(dir));
 
 log(chalk.bgHex('#563ce7').white('[Building bundles...]'));
 

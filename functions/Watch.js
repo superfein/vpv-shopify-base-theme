@@ -1,5 +1,6 @@
 
 import chalk from 'chalk';
+import { ensureDir } from 'fs-extra';
 
 const { log } = console;
 
@@ -13,6 +14,9 @@ const compiler = webpack(config);
 const PATHS = {
   output: path.resolve(__dirname, '../dist'),
 };
+
+// If no dist folder is found create one
+ensureDir(PATHS.output);
 
 compiler.watch({
   aggregateTimeout: 1000,
@@ -30,7 +34,7 @@ compiler.watch({
 
 themeKit
   .command('open', {
-    env: 'production',
+    env: 'theme',
   })
   .catch((err) => {
     console.error('Error', err);
@@ -38,7 +42,7 @@ themeKit
 
 themeKit
   .command('watch', {
-    env: 'production',
+    env: 'theme',
     dir: PATHS.output,
   })
   .catch((err) => {
