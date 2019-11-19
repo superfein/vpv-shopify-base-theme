@@ -37,6 +37,9 @@ export const watchCompile = () => {
     }
     console.log(stats.toString({
       chunks: false,
+      cached: false,
+      children: false,
+      modules: false,
       colors: true,
     }));
     log(chalk.bgHex('#563ce7').white('[Finished building bundles. Uploading...]'));
@@ -44,8 +47,8 @@ export const watchCompile = () => {
   });
 };
 
+// If no dist folder is found create one
 export const makeDir = () => {
-  // If no dist folder is found create one
   ensureDir(PATHS.output);
 };
 
