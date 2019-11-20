@@ -34,7 +34,7 @@
 		"@shopify/themekit": "^1.1.2",
 		"autoprefixer": "^8.6.5",
 		"chalk": "^2.4.1",
-		"copy-webpack-plugin": "^5.0.5",
+		"chokidar": "^3.3.0",
 		"fs-extra": "^8.1.0",
 		"glob": "^7.1.5",
 		"mini-css-extract-plugin": "^0.8.0",
