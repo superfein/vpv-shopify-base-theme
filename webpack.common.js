@@ -2,7 +2,6 @@ const path = require('path');
 const glob = require('glob');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const chalk = require('chalk');
-const CopyPlugin = require('copy-webpack-plugin');
 
 const { log } = console;
 
@@ -13,14 +12,6 @@ const PATHS = {
   src: path.resolve(__dirname, './src'),
   output: path.resolve(__dirname, './dist'),
 };
-
-const copyDir = [];
-const DIR = ['config', 'layout', 'locales', 'sections', 'snippets', 'templates'];
-const appendDir = (dir) => {
-  const temp = { from: `${PATHS.src}/${dir}`, to: `${PATHS.output}/${dir}`, context: './src' };
-  copyDir.push(temp);
-};
-DIR.forEach((dir) => appendDir(dir));
 
 log(chalk.bgHex('#563ce7').white('[Building bundles...]'));
 
@@ -53,7 +44,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].scss.liquid',
     }),
-    new CopyPlugin(copyDir),
   ],
   module: {
     rules: [

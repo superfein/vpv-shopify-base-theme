@@ -1,10 +1,10 @@
-import { copy } from 'fs-extra';
 
+import { copy } from 'fs-extra';
+import fs from 'fs';
 import path from 'path';
 import glob from 'glob';
 import chalk from 'chalk';
-
-const chokidar = require('chokidar');
+import chokidar from 'chokidar';
 
 const { log } = console;
 
@@ -16,9 +16,29 @@ const PATHS = {
   output: path.resolve(__dirname, '../../dist'),
 };
 
-let ignorePaths;
+const copyFile = (output, filePath) => {
+  if (output.includes('assets/images' || 'assets/fonts')) {
+    copy(`${filePath}`, `${PATHS.output}/assets/${output.split('/')[2]}`);
+  } else {
+    copy(`${filePath}`, `${PATHS.output}/${output}`);
+  }
+};
 
-const assets = async () => {
+const unlinkFile = (output) => {
+  try {
+    if (output.includes('assets/images' || 'assets/fonts')) {
+      fs.unlinkSync(`${PATHS.output}/assets/${output.split('/')[2]}`);
+    } else {
+      fs.unlinkSync(`${PATHS.output}/${output}`);
+    }
+    log(chalk.bgHex('#fdcb6e').black(`[${output} deleted]`));
+  } catch (err) {
+    log(chalk.bgHex('#fdcb6e').black(`[error occurred trying to delete ${output}]`));
+  }
+};
+
+let ignorePaths;
+const ignoreAssets = async () => {
   await new Promise((resolve, reject) => {
     glob(`${PATHS.src}/assets/{scripts,styles}`,
       (err, res) => {
@@ -45,23 +65,23 @@ const watcher = async () => {
     watch
       .on('add', (filePath) => {
         const output = filePath.split('/src/')[1];
-        copy(`${filePath}`, `${PATHS.output}/${output}`);
+        copyFile(output, filePath);
         log(chalk.bgHex('#00b894').white(`[${output} added]`));
       })
       .on('change', (filePath) => {
         const output = filePath.split('/src/')[1];
-        copy(`${filePath}`, `${PATHS.output}/${output}`);
+        copyFile(output, filePath);
         log(chalk.bgHex('#563ce7').white(`[${output} modified]`));
       })
       .on('unlink', (filePath) => {
         const output = filePath.split('/src/')[1];
-        log(chalk.bgHex('#fdcb6e').black(`[${output} deleted]`));
+        unlinkFile(output);
       });
     resolve('done');
   });
 };
 
 (async () => {
-  await assets();
+  await ignoreAssets();
   await watcher();
 })();
