@@ -8,7 +8,8 @@
 		"build": "node -r esm ./functions/Build",
 		"watch": "node -r esm ./functions/Watch",
 		"deploy": "node -r esm ./functions/Deploy",
-		"download": "node -r esm ./functions/Download"
+		"download": "node -r esm ./functions/Download",
+		"audit": "lighthouse https://sandbox-vpv-base.myshopify.com --budget-path=./audit.json --view --only-categories=accessibility,best-practices,performance,seo"
 	},
 	"keywords": [],
 	"author": "",
@@ -35,8 +36,10 @@
 		"autoprefixer": "^8.6.5",
 		"chalk": "^2.4.1",
 		"chokidar": "^3.3.0",
+		"chrome-launcher": "^0.12.0",
 		"fs-extra": "^8.1.0",
 		"glob": "^7.1.5",
+		"lighthouse": "^5.6.0",
 		"mini-css-extract-plugin": "^0.8.0",
 		"postcss-preset-env": "^6.7.0",
 		"terser-webpack-plugin": "^2.2.1",
