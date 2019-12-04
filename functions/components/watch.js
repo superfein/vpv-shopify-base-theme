@@ -17,7 +17,7 @@ const PATHS = {
 };
 
 const copyFile = (output, filePath) => {
-  if (/assets\/images|assets\/fonts|/.test(output)) {
+  if (/assets\/images|assets\/fonts/.test(output)) {
     copy(`${filePath}`, `${PATHS.output}/assets/${output.split('/')[2]}`);
   } else {
     copy(`${filePath}`, `${PATHS.output}/${output}`);
@@ -26,7 +26,7 @@ const copyFile = (output, filePath) => {
 
 const unlinkFile = (output) => {
   try {
-    if (/assets\/images|assets\/fonts|/.test(output)) {
+    if (/assets\/images|assets\/fonts/.test(output)) {
       fs.unlinkSync(`${PATHS.output}/assets/${output.split('/')[2]}`);
     } else {
       fs.unlinkSync(`${PATHS.output}/${output}`);
