@@ -1,8 +1,10 @@
 
-import { removeSync, copy } from 'fs-extra';
+import { removeSync, copy, outputFileSync } from 'fs-extra';
 import path from 'path';
+import { readFileSync } from 'fs';
 import glob from 'glob';
 import chalk from 'chalk';
+import { minify } from 'html-minifier';
 
 const { log } = console;
 
@@ -21,18 +23,64 @@ log(chalk.bgHex('#563ce7').white('[Clear directory]'));
 removeSync(path.resolve(__dirname, '../../dist'));
 
 /**
-  @desc Asynchronously pipe all required folders explicitly
+  @desc Synchronously pipe all required files
 */
 log(chalk.bgHex('#563ce7').white('[Rebuilding distribution..]'));
-const DIR = ['config', 'layout', 'locales', 'sections', 'snippets', 'templates'];
-const copyFiles = async (dir) => {
-  try {
-    await copy(`${PATHS.src}/${dir}`, `${PATHS.output}/${dir}`);
-  } catch (err) {
-    console.error(err);
-  }
+
+// Minify liquid
+const minifyLiquid = (file) => {
+  const content = readFileSync(file, 'utf8');
+  const output = minify(content, {
+    collapseWhitespace: true,
+    decodeEntities: true,
+    minifyJS: true,
+    removeComments: true,
+    removeEmptyAttributes: true,
+    removeRedundantAttributes: true,
+  });
+  return output;
 };
-DIR.forEach((dir) => copyFiles(dir));
+
+const fetchFiles = (extension, callback) => {
+  glob(`${PATHS.src}/**/*.${extension}`, { ignore: [`${PATHS.src}/!(assets)*/!(customers)*/*.liquid`] },
+    callback);
+};
+
+fetchFiles('liquid', (err, res) => {
+  const files = res;
+  files.forEach((file) => {
+    const minifiedFile = minifyLiquid(file);
+    const output = `${PATHS.output}/${file.split('/src/')[1]}`;
+    outputFileSync(output, minifiedFile, (error) => {
+      if (error) throw error;
+    });
+  });
+});
+
+fetchFiles('json', (err, res) => {
+  const files = res;
+  files.forEach((file) => {
+    const output = `${PATHS.output}/${file.split('/src/')[1]}`;
+    copy(file, output);
+  });
+});
+
+const fetchSubDirectories = (callback) => {
+  glob(`${PATHS.src}/!(assets)*/!(customers)*/*.liquid`, callback);
+};
+
+fetchSubDirectories((err, res) => {
+  const files = res;
+  files.forEach((file) => {
+    const minifiedFile = minifyLiquid(file);
+    const flattenedPath = `${file.split('/src/')[1].split('/')[0]}/${file.split('/src/')[1].split('/').reverse()[0]}`;
+    const output = `${PATHS.output}/${flattenedPath}`;
+    outputFileSync(output, minifiedFile, (error) => {
+      if (error) throw error;
+    });
+  });
+});
+
 
 /**
   @desc Flatten all assets files
