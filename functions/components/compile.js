@@ -35,7 +35,6 @@ const minifyLiquid = (file) => {
     decodeEntities: true,
     minifyJS: true,
     removeComments: true,
-    removeEmptyAttributes: true,
     removeRedundantAttributes: true,
   });
   return output;
@@ -80,7 +79,6 @@ fetchSubDirectories((err, res) => {
     });
   });
 });
-
 
 /**
   @desc Flatten all assets files
