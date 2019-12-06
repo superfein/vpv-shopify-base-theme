@@ -1,5 +1,255 @@
+@font-face {
+  font-family: "Maison Neue";
+  font-style: normal;
+  font-weight: 400;
+  src: url("{{ 'MaisonNeue-Medium.otf' | asset_url }}") format("opentype");
+}
+
+@font-face {
+  font-family: "Maison Neue";
+  font-style: normal;
+  font-weight: 700;
+  src: url("{{ 'MaisonNeue-Bold.otf' | asset_url }}") format("opentype");
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: normal;
+  font-weight: 400;
+  src: url("{{ 'apercu-regular.ttf' | asset_url }}") format("truetype");
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: italic;
+  font-weight: 400;
+  src: url("{{ 'apercu-italic.ttf' | asset_url }}") format("truetype");
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: normal;
+  font-weight: 700;
+  src: url("{{ 'apercu-bold.ttf' | asset_url }}") format("truetype");
+}
+
+@font-face {
+  font-family: "Apercu";
+  font-style: italic;
+  font-weight: 700;
+  src: url("{{ 'apercu-bold-italic.ttf' | asset_url }}") format("truetype");
+}
+
 html {
-	font-size: $base-font-size;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  font-family: $type--body;
+  font-size: $type--base--mbl;
+  color: $color--type;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media screen and (min-width: $break--tblt) {
+    font-size: $type--base--tblt;
+  }
+
+  @media screen and (min-width: $break--dsktp) {
+    font-size: $type--base--dsktp;
+  }
+}
+
+.type,
+%type {
+  &--xxxl {
+    font-family: $type--display;
+    font-size: 3.052rem;
+    font-weight: 700;
+    line-height: 1.187;
+    letter-spacing: -0.32px;
+
+    @media screen and (min-width: $break--tblt) {
+      font-size: 7.594rem;
+      line-height: 1.198;
+      letter-spacing: -1px;
+    }
+  }
+
+  &--xxl {
+    font-family: $type--body;
+    font-size: 2.441rem;
+    font-weight: 700;
+    line-height: 1.33;
+    letter-spacing: normal;
+
+    @media screen and (min-width: $break--tblt) {
+      font-size: 5.063rem;
+      line-height: 1.32;
+    }
+  }
+
+  &--xl {
+    font-family: $type--body;
+    font-size: 1.953rem;
+    font-weight: 700;
+    line-height: 1.31;
+    letter-spacing: normal;
+
+    @media screen and (min-width: $break--tblt) {
+      font-size: 3.375rem;
+      line-height: 1.33;
+    }
+  }
+
+  &--l {
+    font-family: $type--body;
+    font-size: 1.563rem;
+    font-weight: 700;
+    line-height: 1.33;
+    letter-spacing: normal;
+
+    @media screen and (min-width: $break--tblt) {
+      font-size: 2.25rem;
+    }
+  }
+
+  &--m {
+    font-family: $type--body;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: normal;
+
+    @media screen and (min-width: $break--tblt) {
+      font-size: 1.5rem;
+      line-height: 1.33;
+    }
+  }
+
+  &--p {
+    font-family: $type--body;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.31;
+    letter-spacing: normal;
+
+    @media screen and (min-width: $break--tblt) {
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+  }
+
+  &--s {
+    font-family: $type--body;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1.33;
+    letter-spacing: normal;
+    
+    @media screen and (min-width: $break--tblt) {
+      font-size: 0.667rem;
+      line-height: 1.274;
+    }
+  }
+
+  &--xs {
+    font-family: $type--body;
+    font-size: 0.64rem;
+    font-weight: 700;
+    line-height: 1.27;
+    letter-spacing: normal;
+
+    @media screen and (min-width: $break--tblt) {
+      font-size: 0.444rem;
+      line-height: 1.35;
+    }
+  }
+}
+
+h1 {
+  @extend %type--xxl;
+}
+
+h2 {
+  @extend %type--xl;
+}
+
+h3 {
+  @extend %type--l;
+}
+
+h4 {
+  @extend %type--m;
+}
+
+p {
+  @extend %type--p;
+}
+
+a {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+
+b,
+strong,
+.b {
+  font-weight: 700;
+}
+
+.semi-b {
+  font-weight: 600;
+}
+
+.extra-b {
+  font-weight: 900;
+}
+
+.no-b {
+  font-weight: 400;
+}
+
+i,
+em,
+.i {
+  font-style: italic;
+}
+
+.no-i {
+  font-style: normal;
+}
+
+u,
+.u {
+  text-decoration: underline;
+}
+
+.no-u {
+  text-decoration: none;
+}
+
+.font {
+  &--display {
+    font-family: $type--display;
+  }
+
+  &--body {
+    font-family: $type--body;
+  }
+
+  &--alt {
+    font-family: $type--alt;
+  }
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
 }
