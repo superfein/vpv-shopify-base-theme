@@ -19,12 +19,20 @@
 <title>{{ seo_title }}</title>
 
 {% if page_description %}
-    <meta name="description" content="{{ page_description | escape }}">
+<meta name="description" content="{{ page_description | escape }}">
 {% endif %}
+<meta name="copyright" content="{{ shop.name }} {{ 'now' | date: '%Y' }}">
+<meta name="theme-color" content="{{ settings.primary_color }}">
 
 {% include 'scripts' %}
 
 {% include 'social-meta-tags' %}
 
 <!-- Stylesheets -->
-{{ 'theme.css' | asset_url | stylesheet_tag }}
+{% comment %}
+	Critical Styles
+	<style>
+	</style>
+{% endcomment %}
+<link rel="preload" as="style" type="text/css" href="{{ 'theme.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link type="text/css" rel="stylesheet" href="{{ 'theme.css' | asset_url }}"></noscript>
