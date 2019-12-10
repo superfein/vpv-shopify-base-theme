@@ -29,10 +29,6 @@
 {% include 'social-meta-tags' %}
 
 <!-- Stylesheets -->
-{% comment %}
-	Critical Styles
-	<style>
-	</style>
-{% endcomment %}
+{% comment %} include critical styles {% endcomment %}
 <link rel="preload" as="style" type="text/css" href="{{ 'theme.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link type="text/css" rel="stylesheet" href="{{ 'theme.css' | asset_url }}"></noscript>
