@@ -1,11 +1,10 @@
 
-import { copy } from 'fs-extra';
-import fs from 'fs';
+import { removeSync, copy, outputFileSync } from 'fs-extra';
 import path from 'path';
-import slash from 'slash';
+import { readFileSync } from 'fs';
 import glob from 'glob';
 import chalk from 'chalk';
-import chokidar from 'chokidar';
+import { minify } from 'html-minifier';
 
 const { log } = console;
 
@@ -17,72 +16,85 @@ const PATHS = {
   output: path.resolve(__dirname, '../../dist'),
 };
 
-const copyFile = (output, filePath) => {
-  if (output.includes('assets/images' || 'assets/fonts')) {
-    copy(`${filePath}`, `${PATHS.output}/assets/${output.split('/')[2]}`);
-  } else {
-    copy(`${filePath}`, `${PATHS.output}/${output}`);
-  }
-};
+/**
+  @desc Clear current dist directory
+*/
+log(chalk.bgHex('#563ce7').white('[Clear directory]'));
+removeSync(path.resolve(__dirname, '../../dist'));
 
-const unlinkFile = (output) => {
-  try {
-    if (output.includes('assets/images' || 'assets/fonts')) {
-      fs.unlinkSync(`${PATHS.output}/assets/${output.split('/')[2]}`);
-    } else {
-      fs.unlinkSync(`${PATHS.output}/${output}`);
-    }
-    log(chalk.bgHex('#fdcb6e').black(`[${output} deleted]`));
-  } catch (err) {
-    log(chalk.bgHex('#fdcb6e').black(`[error occurred trying to delete ${output}]`));
-  }
-};
+/**
+  @desc Synchronously pipe all required files
+*/
+log(chalk.bgHex('#563ce7').white('[Rebuilding distribution..]'));
 
-let ignorePaths;
-const ignoreAssets = async () => {
-  await new Promise((resolve, reject) => {
-    glob(`${PATHS.src}/assets/{scripts,styles}`,
-      (err, res) => {
-        if (err) {
-          reject(err);
-        }
-        const assetFiles = [...res];
-        ignorePaths = assetFiles;
-        resolve('done');
-        return res;
-      });
+// Minify liquid
+const minifyLiquid = (file) => {
+  const content = readFileSync(file, 'utf8');
+  const output = minify(content, {
+    collapseWhitespace: true,
+    decodeEntities: true,
+    minifyJS: true,
+    removeComments: true,
+    removeRedundantAttributes: true,
   });
+  return output;
 };
 
-const watcher = async () => {
-  await new Promise((resolve, reject) => {
-    const watch = chokidar.watch(`${PATHS.src}`, {
-      persistent: true,
-      usePolling: true,
-      ignored: ignorePaths,
-      interval: 1000,
-      ignoreInitial: true,
+const fetchFiles = (extension, callback) => {
+  glob(`${PATHS.src}/**/*.${extension}`, { ignore: [`${PATHS.src}/!(assets)*/!(customers)*/*.${extension}`] },
+    callback);
+};
+
+fetchFiles('liquid', (err, res) => {
+  const files = res;
+  files.forEach((file) => {
+    const minifiedFile = minifyLiquid(file);
+    const output = `${PATHS.output}/${file.split('/src/')[1]}`;
+    outputFileSync(output, minifiedFile, (error) => {
+      if (error) throw error;
     });
-    watch
-      .on('add', (filePath) => {
-        const output = slash(filePath).split('/src/')[1];
-        copyFile(output, filePath);
-        log(chalk.bgHex('#00b894').white(`[${output} added]`));
-      })
-      .on('change', (filePath) => {
-        const output = slash(filePath).split('/src/')[1];
-        copyFile(output, filePath);
-        log(chalk.bgHex('#563ce7').white(`[${output} modified]`));
-      })
-      .on('unlink', (filePath) => {
-        const output = slash(filePath).split('/src/')[1];
-        unlinkFile(output);
-      });
-    resolve('done');
   });
+});
+
+fetchFiles('json', (err, res) => {
+  const files = res;
+  files.forEach((file) => {
+    const output = `${PATHS.output}/${file.split('/src/')[1]}`;
+    copy(file, output);
+  });
+});
+
+const fetchSubDirectories = (callback) => {
+  glob(`${PATHS.src}/!(assets)*/!(customers)*/*.liquid`, callback);
 };
 
-(async () => {
-  await ignoreAssets();
-  await watcher();
-})();
+fetchSubDirectories((err, res) => {
+  const files = res;
+  files.forEach((file) => {
+    const minifiedFile = minifyLiquid(file);
+    const flattenedPath = `${file.split('/src/')[1].split('/')[0]}/${file.split('/src/')[1].split('/').reverse()[0]}`;
+    const output = `${PATHS.output}/${flattenedPath}`;
+    outputFileSync(output, minifiedFile, (error) => {
+      if (error) throw error;
+    });
+  });
+});
+
+/**
+  @desc Flatten all assets files
+*/
+const assets = (callback) => {
+  glob(`${PATHS.src}/assets/**/*`, { ignore: [`${PATHS.src}/assets/{scripts,styles}`, `${PATHS.src}/assets/{scripts,styles}/**/*`] },
+    callback);
+};
+
+assets((err, res) => {
+  const assetFiles = res;
+  assetFiles.forEach((dir) => {
+    const output = dir.split('/').reverse()[0];
+    const hasExtension = output.indexOf('.') >= 0;
+    if (hasExtension) {
+      copy(`${dir}`, `${PATHS.output}/assets/${output}`);
+    }
+  });
+});
