@@ -1,18 +1,24 @@
 /*==== Grid ===*/
 
 // Gutter size
-$gutter: 12px;
+$gutter--mbl: 20px;
+$gutter--tblt: 20px;
+$gutter--dsktp: 20px;
+
+$gutter--mbl--half: calc(#{$gutter--mbl} * 0.5);
+$gutter--tblt--half: calc(#{$gutter--tblt} * 0.5);
+$gutter--dsktp--half: calc(#{$gutter--dsktp} * 0.5);
 
 // Grid size
 $number-of-columns: 12;
 
 // Breakpoints
-$break--mbl: 520px;
-$break--tblt: 872px;
+$break--mbl: 320px;
+$break--tblt: 720px;
 $break--dsktp: 1024px;
 
 // Container Widths
-$width--s: 520px;
+$width--s: 480px;
 $width--m: 872px;
 $width--l: 1024px;
 
@@ -41,9 +47,10 @@ $color--light--darker: #B1B1B1;
 
 $color--darken-1: rgba($color--dark, 0.1);
 $color--darken-2: rgba($color--dark, 0.2);
+$color--darken-3: rgba($color--dark, 0.5);
 
-$color--lighten-1: rgba($color--light, 0.05);
-$color--lighten-2: rgba($color--light, 0.1);
+$color--lighten-1: rgba($color--light, 0.1);
+$color--lighten-2: rgba($color--light, 0.2);
 $color--lighten-3: rgba($color--light, 0.5);
 
 $color--type: $color--dark--dark;
@@ -60,7 +67,7 @@ $color--test-pink: rgba(255, 128, 255, 0.1);
 
 /*==== Typestyles ====*/
 $type--base--mbl: 16px;
-$type--base--tblt: 16px;
+$type--base--tblt: 20px;
 $type--base--dsktp: 20px;
 
 $type-stack--sans: (Helvetica, Arial, sans-serif);
@@ -69,12 +76,12 @@ $type-stack--mono: ("Courier New", Courier, "Lucida Sans Typewriter", "Lucida Ty
 
 $type--display: ("Apercu", $type-stack--sans);
 $type--body: ("Maison Neue", $type-stack--sans);
-// $type--alt: ;
+$type--alt: ("Maison Neue", $type-stack--sans);
 
 /*==== Spacing ====*/
-$space--base--mbl: 0.625rem;
-$space--base--tblt: 1rem;
-$space--base--dsktp: 1rem;
+$space--base--mbl: 0.625rem; // 10px
+$space--base--tblt: 0.8rem; // 16px
+$space--base--dsktp: 1rem; // 20px
 
 $space--xxxl--mbl: calc(#{$space--base--mbl} * 8.5);
 $space--xxl--mbl: calc(#{$space--base--mbl} * 5);

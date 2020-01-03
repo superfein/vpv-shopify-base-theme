@@ -62,11 +62,12 @@ html {
     font-family: $type--display;
     font-size: 3.052rem;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.187;
     letter-spacing: -0.32px;
 
     @media screen and (min-width: $break--tblt) {
       font-size: 7.594rem;
+      line-height: 1.198;
       letter-spacing: -1px;
     }
   }
@@ -75,11 +76,12 @@ html {
     font-family: $type--body;
     font-size: 2.441rem;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.33;
     letter-spacing: normal;
 
     @media screen and (min-width: $break--tblt) {
       font-size: 5.063rem;
+      line-height: 1.32;
     }
   }
 
@@ -87,11 +89,12 @@ html {
     font-family: $type--body;
     font-size: 1.953rem;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.31;
     letter-spacing: normal;
 
     @media screen and (min-width: $break--tblt) {
       font-size: 3.375rem;
+      line-height: 1.33;
     }
   }
 
@@ -99,7 +102,7 @@ html {
     font-family: $type--body;
     font-size: 1.563rem;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.33;
     letter-spacing: normal;
 
     @media screen and (min-width: $break--tblt) {
@@ -111,11 +114,12 @@ html {
     font-family: $type--body;
     font-size: 1.25rem;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.35;
     letter-spacing: normal;
 
     @media screen and (min-width: $break--tblt) {
       font-size: 1.5rem;
+      line-height: 1.33;
     }
   }
 
@@ -123,11 +127,12 @@ html {
     font-family: $type--body;
     font-size: 1rem;
     font-weight: 400;
-    line-height: 1;
+    line-height: 1.31;
     letter-spacing: normal;
 
     @media screen and (min-width: $break--tblt) {
       font-size: 1rem;
+      line-height: 1.35;
     }
   }
 
@@ -135,11 +140,12 @@ html {
     font-family: $type--body;
     font-size: 0.8rem;
     font-weight: 400;
-    line-height: 1;
+    line-height: 1.33;
     letter-spacing: normal;
     
     @media screen and (min-width: $break--tblt) {
       font-size: 0.667rem;
+      line-height: 1.274;
     }
   }
 
@@ -147,11 +153,12 @@ html {
     font-family: $type--body;
     font-size: 0.64rem;
     font-weight: 700;
-    line-height: 1;
+    line-height: 1.27;
     letter-spacing: normal;
 
     @media screen and (min-width: $break--tblt) {
       font-size: 0.444rem;
+      line-height: 1.35;
     }
   }
 }
@@ -172,8 +179,7 @@ h4 {
   @extend %type--m;
 }
 
-p,
-span {
+p {
   @extend %type--p;
 }
 
@@ -231,9 +237,9 @@ u,
     font-family: $type--body;
   }
 
-  // &--alt {
-  //   font-family: $alt;
-  // }
+  &--alt {
+    font-family: $type--alt;
+  }
 }
 
 .capitalize {

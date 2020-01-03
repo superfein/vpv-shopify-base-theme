@@ -11,7 +11,7 @@ select {
   @extend %type--p;
   position: relative;
   display: inline-block;
-  padding: 12px;
+  padding: $gutter--mbl;
   font-weight: 700;
   letter-spacing: 1px;
   text-align: center;
@@ -23,6 +23,14 @@ select {
   box-shadow: $color--darken-2 0 2px 1px -1px, $color--darken-1 0 1px 3px 0;
   box-sizing: border-box;
   transition: color $base-transition, box-shadow $base-transition;
+
+  @media screen and (min-width: $break--tblt) {
+    padding: $gutter--tblt;
+  }
+
+  @media screen and (min-width: $break--dsktp) {
+    padding: $gutter--dsktp;
+  }
 
   &::after {
     position: absolute;
@@ -182,9 +190,18 @@ select {
 
 .input {
   @extend %type--p;
-  padding: 12px;
+  padding: $gutter--mbl;
   border: 0;
   border-radius: 0;
+  box-sizing: border-box;
+
+  @media screen and (min-width: $break--tblt) {
+    padding: $gutter--tblt;
+  }
+
+  @media screen and (min-width: $break--dsktp) {
+    padding: $gutter--dsktp;
+  }
 
   &--light {
     color: $color--dark;
@@ -229,7 +246,6 @@ select {
 
 .list {
   &--no-style {
-    padding: 0;
     margin: 0;
     list-style: none;
   }

@@ -1,82 +1,58 @@
 <div id="cart" class="global-cart" :class="{active: cartIsOpen}" v-cloak>
   <div class="global-cart__overlay" @click="toggleCart"></div>
   <div class="global-cart__drawer">
-    <div class="global-cart__drawer__header">
+    <div class="global-cart__drawer__header row row--align-center padding-both--s">
       <span class="type--m heading">
-        Bag
+        Cart
       </span>
       <button class="button button--no-style close" @click="toggleCart">
         {% include 'svg', name: 'x', class: 'close__svg' %}
       </button>
     </div>
-    <div class="global-cart__drawer__error-bar" :class="{active: cartError}">
+    <div class="global-cart__drawer__error-bar row row--align-center row--justify-center" :class="{active: cartError}">
       <span class="type--s error">${ cartError }</span>
     </div>
-    <ul class="list list--no-style global-cart__drawer__item-list">
+    <ul class="list list--no-style global-cart__drawer__item-list row row--direction-column row--no-wrap">
       <line-item inline-template
       v-for="item in cartData.items"
       v-if="item.quantity > 0"
       :key="item.key"
       :item="item"
-      :loading="loadingKeys.includes(item.key)"
+      :loading="loadingIds.includes(item.variant_id)"
       v-on:change-line="changeCart">
-        <li class="item" :class="{loading: loading}">
+        <li class="item row row--no-padding row--no-wrap padding-both--s" :class="{loading: loading}">
           <div class="item__image-wrap">
             <a v-if="item.image" :href="item.url">
               <img :src="thumbnailImg" :alt="item.product_title">
             </a>
           </div>
-          <div class="item__info-wrap">
-            <span class="type--xs uppercase margin-bottom--xxs vendor">${ item.vendor }</span>
-            <a class="type--s b no-u margin-bottom--xs title" :href="item.url">${ item.product_title }</a>
-            <span v-for="option in item.options_with_values" class="type--s option">${option.name}: ${option.value}</span>
+          <div class="item__info-wrap row row--direction-column row--no-padding gutter--left">
+            <a class="type--p b no-u margin-bottom--xxxs title" :href="item.url">${ item.product_title }</a>
+            <span v-for="option in item.options_with_values" class="type--s option">${option.name}: <span class="uppercase">${option.value}</span></span>
             <div class="bottom">
               <div class="qty-adjust-wrap">
                 <button class="dec button--no-style" @click="changeLine(item.quantity - 1)">
                   {% include 'svg', name: '-' %}
                 </button>
-                <span class="type--s qty">${ item.quantity }</span>
+                <span class="type--s b gutters--half qty">${ item.quantity }</span>
                 <button class="inc button--no-style" @click="changeLine(item.quantity + 1)">
                   {% include 'svg', name: '+' %}
                 </button>
               </div>
-              <div class="price-wrap">
-                <span class="type--xs orig-price" v-if="item.total_discount > 0">${ animatedOrigPrice }</span>
-                <span class="type--p b price" :class="{ sale: item.total_discount > 0 }">${ animatedPrice }</span>
+              <div class="price-wrap row row--direction-column row--no-padding row--align-end">
+                <span class="type--s orig-price" v-if="item.total_discount > 0">$${ origPrice }</span>
+                <span class="type--p b price" :class="{ sale: item.total_discount > 0 }">$${ price }</span>
               </div>
             </div>
           </div>
-          <!-- <div class="cart-item__image-wrapper">
-            <a v-if="item.image" :href="item.url">
-              <img :src="thumbnailImg" :alt="item.product_title">
-            </a>
-          </div>
-          <div class="cart-item__info-start">
-            <p><a :href="item.url">${ item.product_title }</a></p>
-            <p v-if="!item.variant_options[1]" class="no-u sm">${ item.variant_options[0] }</p>
-            <p v-else class="no-u sm">${ item.variant_options[0] } / ${ item.variant_options[1] }</p>
-            <p v-if="item.properties && item.properties.Date">Date: ${ item.properties.Date }</p>
-            <div class="quantity">
-              <button class="button--decrement" @click="changeLine(item.quantity - 1)">
-                  &mdash;
-              </button>
-              <span class="cart-item__details__qty-adj-wrap__cur card-price">${ item.quantity }</span>
-              <button class="button--increment" @click="changeLine(item.quantity + 1)">
-                  &#43;
-              </button>
-            </div>
-          </div>
-          <div class="cart-item__info-end">
-            <p class="pdp-price">${ animatedPrice }</p>
-            <button class="no-style u" @click="changeLine(0)">Remove</button>
-          </div> -->
         </li>
       </line-item>
+      <div class="type--p margin-auto empty-msg" v-if="cartData.item_count === 0">Your cart is currently empty.</div>
     </ul>
-    <div class="global-cart__drawer__footer">
-      <span class="type--s margin-bottom--s">You’re $${animatedFromFreeShip} away from free shipping!</span>
-      <a class="button button--dark margin-bottom--xs" :href="checkoutUrl">
-        Checkout — $${animatedTotal}
+    <div class="global-cart__drawer__footer row row--direction-column row--align-center row--justify-center padding-both--s">
+      <span class="type--s margin-bottom--xs">You’re $${fromFreeShip} away from free shipping!</span>
+      <a class="button button--primary margin-bottom--xs width--100" :href="checkoutUrl">
+        Checkout — $${total}
       </a>
       <span class="type--xs no-b">Shipping & Taxes Calculated at Checkout</span>
     </div>
