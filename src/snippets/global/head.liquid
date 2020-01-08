@@ -34,9 +34,11 @@
 
 <!-- Stylesheets -->
 {% case template %}
-	{% when "index" %}
+  {% when 'password' %}
+    {% assign fileName = 'password' %}
+	{% when 'index' %}
     {% assign fileName = 'index' %}
-	{% when "product" %}
+	{% when 'product' %}
 		{% assign fileName = 'product' %}
 {% endcase %}
 

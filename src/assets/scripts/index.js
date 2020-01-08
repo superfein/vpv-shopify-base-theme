@@ -1,3 +1,2 @@
-// Home page
-import '../theme.js';
+import './theme';
 import '../styles/pages/index.scss';

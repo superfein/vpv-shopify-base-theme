@@ -1,5 +1,5 @@
-import '../../styles/theme.scss';
+import '../styles/theme.scss';
 
-import './global/polyfill'
-import './global/dev-theme-preview'
+import './components/polyfill'
+import './components/dev-theme-preview'
 import './components/cart'

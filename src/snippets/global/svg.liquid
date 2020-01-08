@@ -1,4 +1,4 @@
-
+{%- comment -%}
 {% case name %}
   {% when 'search' %}
     {% assign viewBox = "0 0 26 26" %}
@@ -11,6 +11,7 @@
   {% if svg_title %} <title>{{ svg_title }}</title> {% endif %}
   {{ shape }}
 </svg>
+{%- endcomment -%}
 
 <?xml version="1.0" encoding="utf-8"?>
 {% case name %}
