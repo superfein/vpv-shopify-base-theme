@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @mixin size($size) {
   @if $size == mobile {
     @media (min-width: $break--mbl) { @content; }
@@ -7,3 +8,5 @@
     @media (min-width: $break--dsktp) { @content; }
   }
 }
+=======
+>>>>>>> v2

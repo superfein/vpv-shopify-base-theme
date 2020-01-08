@@ -7,6 +7,7 @@
 		"theme_documentation_url": "https://github.com/verbalplusvisual/vpv-shopify-base-theme",
 		"theme_support_url": "https://github.com/verbalplusvisual/vpv-shopify-base-theme"
 	},
+<<<<<<< HEAD
 	{
 		"name": "Colors",
 		"settings": [{
@@ -99,4 +100,41 @@
 			}
 		]
 	}
+=======
+  {
+    "name": "Social",
+    "settings": [
+      {
+        "type": "url",
+        "id": "instagram",
+        "label": "Instagram Link"
+      },
+      {
+        "type": "url",
+        "id": "twitter",
+        "label": "Twitter Link"
+      },
+      {
+        "type": "url",
+        "id": "facebook",
+        "label": "Facebook Link"
+      },
+      {
+        "type": "url",
+        "id": "youtube",
+        "label": "YouTube Link"
+      },
+      {
+        "type": "url",
+        "id": "pinterest",
+        "label": "Pinterest Link"
+      },
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Default Social Sharing Image"
+      }
+    ]
+  }
+>>>>>>> v2
 ]

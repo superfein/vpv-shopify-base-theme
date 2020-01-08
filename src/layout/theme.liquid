@@ -1,4 +1,5 @@
 <!doctype html>
+<<<<<<< HEAD
 <html class="no-js" lang="{{ shop.locale }}">
 
 	<head>
@@ -14,4 +15,23 @@
 
 		{% include 'json-ld' %}
 	</body>
+=======
+<html class="no-js supports-no-cookies" lang="{{ shop.locale }}">
+    <head>
+      {% include 'head' %}
+      {{ content_for_header }}
+    </head>
+
+    <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+      {% include 'global-header' %}
+      {% unless template == 'cart' %}
+        {% include 'global-cart' %}
+      {% endunless %}
+      <main id="content-for-layout">
+        {{ content_for_layout }}
+      </main>
+      {% include 'global-footer' %}
+      {% include 'json-ld' %}
+    </body>
+>>>>>>> v2
 </html>

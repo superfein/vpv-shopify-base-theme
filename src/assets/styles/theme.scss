@@ -1,5 +1,6 @@
 // @charset "UTF-8";
 
+<<<<<<< HEAD
 // // Fonts
 @import 'components/fonts';
 
@@ -22,3 +23,42 @@
 @import 'components/navbar';
 @import 'components/footer';
 
+=======
+// Variables
+@import "global/variables";
+
+// Mixins
+@import "global/mixins";
+
+// Global
+@import "global/normalize";
+@import "global/reset";
+@import "global/utility";
+@import "global/layout";
+@import "global/grid";
+@import "global/typography";
+@import "global/spacing";
+@import "global/ui-elements";
+
+// Components
+@import "components/global-cart";
+
+// Pages
+@import "pages/index";
+@import "pages/product";
+@import "pages/cart";
+@import "pages/collection";
+@import "pages/login";
+@import "pages/resetpw";
+@import "pages/register";
+@import "pages/activate";
+@import "pages/account";
+@import "pages/addresses";
+@import "pages/order";
+@import "pages/search";
+@import "pages/blog";
+@import "pages/password";
+
+// Vendor 
+@import "vendor/swiper";
+>>>>>>> v2
