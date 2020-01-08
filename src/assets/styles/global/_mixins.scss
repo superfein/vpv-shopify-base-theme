@@ -1,0 +1,12 @@
+<<<<<<< HEAD
+@mixin size($size) {
+  @if $size == mobile {
+    @media (min-width: $break--mbl) { @content; }
+  } @else if $size == tablet {
+    @media (min-width: $break--tblt) { @content; }
+  } @else if $size == desktop {
+    @media (min-width: $break--dsktp) { @content; }
+  }
+}
+=======
+>>>>>>> v2

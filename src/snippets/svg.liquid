@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+
+{% case name %}
+  {% when 'search' %}
+    {% assign viewBox = "0 0 26 26" %}
+    {% assign shape = '<path d="M2 9c0-3.86 3.14-7 7-7s7 3.14 7 7-3.14 7-7 7-7-3.14-7-7zm24 15.585l-9.972-9.972A8.954 8.954 0 0018 9a9 9 0 10-9 9 8.96 8.96 0 005.614-1.972L24.586 26 26 24.585z" fill-rule="evenodd"/>' %}
+  {% else %}
+  🤔
+{% endcase %}
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="{{ viewBox }}" {% if id %}id="{{ id }}"{% endif %} {% if class %}class="{{ class }}"{% endif %}>
+  {% if svg_title %} <title>{{ svg_title }}</title> {% endif %}
+  {{ shape }}
+</svg>
+=======
 <?xml version="1.0" encoding="utf-8"?>
 {% case name %}
   {% when 'logo' %}
@@ -46,3 +61,4 @@
   {% else %}
     🤔
 {% endcase %}
+>>>>>>> v2

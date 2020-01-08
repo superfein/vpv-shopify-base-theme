@@ -4,6 +4,18 @@
 <link rel="canonical" href="{{ canonical_url }}">
 
 {% capture seo_title %}
+<<<<<<< HEAD
+	{{ page_title }}
+	{% if current_tags %}
+			{%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+	{% endif %}
+	{% if current_page != 1 %}
+			&ndash; {{ 'general.meta.page' | t: page: current_page }}
+	{% endif %}
+	{% unless page_title contains shop.name %}
+			&ndash; {{ shop.name }}
+	{% endunless %}
+=======
   {{ page_title }}
   {% if current_tags %}
     {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
@@ -14,13 +26,20 @@
   {% unless page_title contains shop.name %}
     &ndash; {{ shop.name }}
   {% endunless %}
+>>>>>>> v2
 {% endcapture %}
 
 <title>{{ seo_title }}</title>
 
 {% if page_description %}
+<<<<<<< HEAD
+<meta name="description" content="{{ page_description | escape }}">
+=======
   <meta name="description" content="{{ page_description | escape }}">
+>>>>>>> v2
 {% endif %}
+<meta name="copyright" content="{{ shop.name }} {{ 'now' | date: '%Y' }}">
+<meta name="theme-color" content="{{ settings.primary_color }}">
 
 <!-- Social Meta Tags -->
 {% include 'social-meta-tags' %}
@@ -31,5 +50,25 @@
 <!-- END Scripts -->
 
 <!-- Stylesheets -->
+<<<<<<< HEAD
+{% case template %}
+	{% when "index" %}
+    {% assign fileName = 'index' %}
+	{% when "product" %}
+		{% assign fileName = 'product' %}
+{% endcase %}
+
+{% comment %} Vendors SCSS will generate if you include any 3rd party CSS. Uncomment if needed. {% endcomment %}
+{% comment %} <link rel="stylesheet" type="text/css" href="{{ 'vendors.scss' | asset_url }}"> {% endcomment %}
+
+{% comment %} theme.scss will generate once you have enough css shared between your project. {% endcomment %}
+{% comment %} theme.scss will store the most common css into one file. Uncomment when/if file generates. {% endcomment %}
+{% comment %} <link rel="stylesheet" type="text/css" href="{{ 'theme.scss' | asset_url }}"> {% endcomment %}
+
+{% if fileName %}
+	<link rel="stylesheet" type="text/css" href="{{ fileName | append: '.scss' | asset_url }}">
+{% endif %}
+=======
 {{ 'theme.css' | asset_url | stylesheet_tag }}
 <!-- END Stylesheets -->
+>>>>>>> v2

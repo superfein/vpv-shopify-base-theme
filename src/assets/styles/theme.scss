@@ -1,5 +1,29 @@
 // @charset "UTF-8";
 
+<<<<<<< HEAD
+// // Fonts
+@import 'components/fonts';
+
+// // Variables
+@import 'global/variables';
+
+// // Mixins
+@import 'global/mixins';
+
+// // Global
+@import 'global/normalize';
+@import 'global/reset';
+@import 'global/utility';
+@import 'global/typography';
+@import 'global/layout';
+@import 'global/grid';
+@import 'global/ui-elements';
+
+// // Components
+@import 'components/navbar';
+@import 'components/footer';
+
+=======
 // Variables
 @import "global/variables";
 
@@ -37,3 +61,4 @@
 
 // Vendor 
 @import "vendor/swiper";
+>>>>>>> v2
