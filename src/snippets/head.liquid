@@ -4,16 +4,16 @@
 <link rel="canonical" href="{{ canonical_url }}">
 
 {% capture seo_title %}
-    {{ page_title }}
-    {% if current_tags %}
-        {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
-    {% endif %}
-    {% if current_page != 1 %}
-        &ndash; {{ 'general.meta.page' | t: page: current_page }}
-    {% endif %}
-    {% unless page_title contains shop.name %}
-        &ndash; {{ shop.name }}
-    {% endunless %}
+	{{ page_title }}
+	{% if current_tags %}
+			{%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+	{% endif %}
+	{% if current_page != 1 %}
+			&ndash; {{ 'general.meta.page' | t: page: current_page }}
+	{% endif %}
+	{% unless page_title contains shop.name %}
+			&ndash; {{ shop.name }}
+	{% endunless %}
 {% endcapture %}
 
 <title>{{ seo_title }}</title>
@@ -29,6 +29,20 @@
 {% include 'social-meta-tags' %}
 
 <!-- Stylesheets -->
-{% comment %} include critical styles {% endcomment %}
-<link rel="preload" as="style" type="text/css" href="{{ 'theme.css' | asset_url }}" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link type="text/css" rel="stylesheet" href="{{ 'theme.css' | asset_url }}"></noscript>
+{% case template %}
+	{% when "index" %}
+    {% assign fileName = 'index' %}
+	{% when "product" %}
+		{% assign fileName = 'product' %}
+{% endcase %}
+
+{% comment %} Vendors SCSS will generate if you include any 3rd party CSS. Uncomment if needed. {% endcomment %}
+{% comment %} <link rel="stylesheet" type="text/css" href="{{ 'vendors.scss' | asset_url }}"> {% endcomment %}
+
+{% comment %} theme.scss will generate once you have enough css shared between your project. {% endcomment %}
+{% comment %} theme.scss will store the most common css into one file. Uncomment when/if file generates. {% endcomment %}
+{% comment %} <link rel="stylesheet" type="text/css" href="{{ 'theme.scss' | asset_url }}"> {% endcomment %}
+
+{% if fileName %}
+	<link rel="stylesheet" type="text/css" href="{{ fileName | append: '.scss' | asset_url }}">
+{% endif %}

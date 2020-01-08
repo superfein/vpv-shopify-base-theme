@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html class="no-js supports-no-cookies" lang="{{ shop.locale }}">
-    <head>
-        {% include 'head' %}
-        {{ content_for_header }}
-    </head>
+<!doctype html>
+<html class="no-js" lang="{{ shop.locale }}">
 
-    <body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
-        {% include 'nav' %}
-        <div id="content_for_layout">
-          {{ content_for_layout }}
-        </div>
-        {% include 'json-ld' %}
-    </body>
+	<head>
+		{% include 'head' %}
+		{{ content_for_header }}
+	</head>
+	<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
+  	<a class="visually-hidden skip-link" href="#content_for_layout">{{ 'general.accessibility.skip_to_content' | t }}</a>
+
+		<main role="main" id="content_for_layout">
+			{{ content_for_layout }}
+		</main>
+
+		{% include 'json-ld' %}
+	</body>
 </html>

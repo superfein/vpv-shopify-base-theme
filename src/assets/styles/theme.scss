@@ -1,11 +1,14 @@
 // @charset "UTF-8";
-//
+
+// // Fonts
+@import 'components/fonts';
+
 // // Variables
 @import 'global/variables';
-//
+
 // // Mixins
 @import 'global/mixins';
-//
+
 // // Global
 @import 'global/normalize';
 @import 'global/reset';
@@ -14,24 +17,8 @@
 @import 'global/layout';
 @import 'global/grid';
 @import 'global/ui-elements';
-//
-// // Components
-//
-// // Pages
-@import 'pages/index';
-@import 'pages/product';
-@import 'pages/cart';
-@import 'pages/collection';
-@import 'pages/login';
-@import 'pages/resetpw';
-@import 'pages/register';
-@import 'pages/activate';
-@import 'pages/account';
-@import 'pages/addresses';
-@import 'pages/order';
-@import 'pages/search';
-@import 'pages/blog';
 
-// Vendor 
-// example with Swiper SCSS
-@import 'vendor/swiper';
+// // Components
+@import 'components/navbar';
+@import 'components/footer';
+

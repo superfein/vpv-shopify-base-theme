@@ -21,7 +21,7 @@ module.exports = {
       [y.split('/').reverse()[0].split('.')[0]]: y,
     }), {}),
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].bundle.js.liquid',
     path: `${PATHS.output}/assets`,
   },
   optimization: {
@@ -35,6 +35,7 @@ module.exports = {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
+          filename: '[name].bundle.js',
           chunks: 'all',
         },
       },
@@ -63,7 +64,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(scss|sass)$/,
+        test: /\.(scss|sass|css)$/,
         use: [
           MiniCssExtractPlugin.loader,
           {

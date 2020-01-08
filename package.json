@@ -75,7 +75,13 @@
 				"error",
 				"global"
 			],
-			"curly": "warn"
+			"curly": "warn",
+			"indent": [
+				"error",
+				"tab"
+			],
+			"allowIndentationTabs": true,
+			"no-tabs": 0
 		}
 	},
 	"eslintIgnore": [

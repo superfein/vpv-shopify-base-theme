@@ -1,5 +1,5 @@
 files:
-  include: '**/**/*.s+(a|c)ss'
+  include: '**/*.s+(a|c)ss'
 options:
   formatter: stylish
   merge-default-rules: false
@@ -22,7 +22,7 @@ rules:
     - convention: hyphenatedbem
   extends-before-declarations: 0
   extends-before-mixins: 0
-  empty-line-between-blocks: 
+  empty-line-between-blocks:
     - 1
     - include: true
   force-element-nesting: 1

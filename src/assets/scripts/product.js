@@ -1,6 +1,7 @@
 // Product page
-
+import './components/Global';
 import './components/some-module';
-import '../styles/theme.scss';
+
+import '../styles/pages/_product.scss';
 
 console.log('welcome to the product page');
