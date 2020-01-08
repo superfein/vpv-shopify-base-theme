@@ -1,21 +1,4 @@
 <!doctype html>
-<<<<<<< HEAD
-<html class="no-js" lang="{{ shop.locale }}">
-
-	<head>
-		{% include 'head' %}
-		{{ content_for_header }}
-	</head>
-	<body id="{{ page_title | handle }}" class="template-{{ template.name | handle }}">
-  	<a class="visually-hidden skip-link" href="#content_for_layout">{{ 'general.accessibility.skip_to_content' | t }}</a>
-
-		<main role="main" id="content_for_layout">
-			{{ content_for_layout }}
-		</main>
-
-		{% include 'json-ld' %}
-	</body>
-=======
 <html class="no-js supports-no-cookies" lang="{{ shop.locale }}">
     <head>
       {% include 'head' %}
@@ -33,5 +16,4 @@
       {% include 'global-footer' %}
       {% include 'json-ld' %}
     </body>
->>>>>>> v2
 </html>
