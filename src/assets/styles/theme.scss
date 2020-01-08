@@ -12,28 +12,12 @@
 @import "global/utility";
 @import "global/layout";
 @import "global/grid";
+@import "global/fonts";
 @import "global/typography";
 @import "global/spacing";
 @import "global/ui-elements";
 
 // Components
+@import "components/global-header";
+@import "components/global-footer";
 @import "components/global-cart";
-
-// Pages
-@import "pages/index";
-@import "pages/product";
-@import "pages/cart";
-@import "pages/collection";
-@import "pages/login";
-@import "pages/resetpw";
-@import "pages/register";
-@import "pages/activate";
-@import "pages/account";
-@import "pages/addresses";
-@import "pages/order";
-@import "pages/search";
-@import "pages/blog";
-@import "pages/password";
-
-// Vendor 
-@import "vendor/swiper";

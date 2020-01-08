@@ -1,3 +1,5 @@
-import './dev-theme-preview';
-import './polyfill';
-import './cart';
+import '../../styles/theme.scss';
+
+import './global/polyfill'
+import './global/dev-theme-preview'
+import './components/cart'

@@ -1,7 +1,7 @@
 import Vue from 'vue/dist/vue.esm';
 import axios from 'axios';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-// import { logCheckoutError } from './error-log';
+import { logCheckoutError } from './error-log';
 
 const cartEl = document.getElementById('cart');
 
