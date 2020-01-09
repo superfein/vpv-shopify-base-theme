@@ -93,7 +93,7 @@
 }
 
 // Base class
-[class*="col-"] {
+.col {
   width: 100%;
   padding-right: $gutter--mbl;
   padding-left: $gutter--mbl;
@@ -133,12 +133,6 @@
   > .row {
     padding-right: 0;
     padding-left: 0;
-  }
-
-  @for $i from 1 through $number-of-columns {
-    &.order-#{$i} {
-      order: $i;
-    }
   }
 }
 

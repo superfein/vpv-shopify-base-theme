@@ -1,7 +1,7 @@
 import Vue from 'vue/dist/vue.esm';
 import axios from 'axios';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-// import { logCheckoutError } from './error-log';
+// import { logCheckoutError } from '../utility/error-log';
 
 const cartEl = document.getElementById('cart');
 
@@ -65,7 +65,6 @@ const vueCart = new Vue({
   },
   watch: {
     cartIsOpen(newState) {
-      console.log('watch', newState);
       if (newState) {
         disableBodyScroll(this.$el.querySelectorAll('.list')[0]);
       } else {
@@ -147,7 +146,6 @@ const vueCart = new Vue({
             this.refreshCart();
           })
           .catch((err) => {
-            console.log('/cart/add.js', err);
             // logCheckoutError({
             //   requestUrl: '/cart/add.js',
             //   requestBody: body,
@@ -181,7 +179,6 @@ const vueCart = new Vue({
             this.refreshCart(lineItemVariantId);
           })
           .catch((err) => {
-            console.log('/cart/change.js', err);
             // logCheckoutError({
             //   requestUrl: '/cart/change.js',
             //   requestBody: body,

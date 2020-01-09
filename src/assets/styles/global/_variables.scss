@@ -120,5 +120,7 @@ $space--xxxs--dsktp: calc(#{$space--base--dsktp} * 0.5);
 /*==== Transitions ====*/
 $bezier: cubic-bezier(0.23, 1, 0.32, 1); // easeOutQuint
 $timing: 0.4s;
+$timing--quick: 0.2s;
 $base-transition: $timing $bezier;
 $base-transition--delay: $timing $bezier $timing;
+$base-transition--quick: $timing--quick $bezier;

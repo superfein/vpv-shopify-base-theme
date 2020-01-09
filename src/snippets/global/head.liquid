@@ -28,10 +28,6 @@
 {% include 'social-meta-tags' %}
 <!-- END Social Meta Tags -->
 
-<!-- Scripts -->
-{% include 'scripts' %}
-<!-- END Scripts -->
-
 <!-- Stylesheets -->
 {% case template %}
   {% when 'password' %}
@@ -39,15 +35,15 @@
 	{% when 'index' %}
     {% assign fileName = 'index' %}
 	{% when 'product' %}
-		{% assign fileName = 'product' %}
+    {% assign fileName = 'product' %}
+  {% when 'cart' %}
+    {% assign fileName = 'cart' %}
+  {% when 'page.pattern-library' %}
+		{% assign fileName = 'pattern-library' %}
 {% endcase %}
 
-{% comment %} Vendors SCSS will generate if you include any 3rd party CSS. Uncomment if needed. {% endcomment %}
-{% comment %} <link rel="stylesheet" type="text/css" href="{{ 'vendors.scss' | asset_url }}"> {% endcomment %}
-
-{% comment %} theme.scss will generate once you have enough css shared between your project. {% endcomment %}
-{% comment %} theme.scss will store the most common css into one file. Uncomment when/if file generates. {% endcomment %}
-{% comment %} <link rel="stylesheet" type="text/css" href="{{ 'theme.scss' | asset_url }}"> {% endcomment %}
+{%- comment -%}<link rel="stylesheet" type="text/css" href="{{ 'vendors.scss' | asset_url }}">{%- endcomment -%}
+<link rel="stylesheet" type="text/css" href="{{ 'theme.scss' | asset_url }}">
 
 {% if fileName %}
 	<link rel="stylesheet" type="text/css" href="{{ fileName | append: '.scss' | asset_url }}">

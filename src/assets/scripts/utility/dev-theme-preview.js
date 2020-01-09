@@ -1,4 +1,4 @@
-if (window.location.href.indexOf('localhost') > -1) {
+if (window.location.href.indexOf('localhost') > -1 || true) {
   const findiFrame = () => {
     const previewBarIFrame = document.getElementById('preview-bar-iframe');
     if (!previewBarIFrame) {

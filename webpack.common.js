@@ -16,7 +16,7 @@ const PATHS = {
 log(chalk.bgHex('#563ce7').white('[Building bundles...]'));
 
 module.exports = {
-  entry: glob.sync(`${PATHS.src}/assets/scripts/*.js`)
+  entry: glob.sync(`${PATHS.src}/assets/scripts/**/*.js`, recursive = true)
     .reduce((x, y) => Object.assign(x, {
       [y.split('/').reverse()[0].split('.')[0]]: y,
     }), {}),

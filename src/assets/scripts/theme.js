@@ -1,5 +1,7 @@
 import '../styles/theme.scss';
 
-import './components/polyfill'
-import './components/dev-theme-preview'
+import './utility/polyfill'
+import './utility/dev-theme-preview'
 import './components/cart'
+
+console.log('this is theme.js');

@@ -119,6 +119,21 @@ html {
       line-height: 1.35;
     }
   }
+
+  &--button {
+    font-family: $type--body;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.7;
+    letter-spacing: normal;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @media screen and (min-width: $break--tblt) {
+      font-size: 0.7rem;
+      line-height: 1.7;
+    }
+  }
 }
 
 h1 {
