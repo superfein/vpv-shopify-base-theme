@@ -1,0 +1,50 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="canonical" href="{{ canonical_url }}">
+
+{% capture seo_title %}
+	{{ page_title }}
+	{% if current_tags %}
+			{%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+	{% endif %}
+	{% if current_page != 1 %}
+			&ndash; {{ 'general.meta.page' | t: page: current_page }}
+	{% endif %}
+	{% unless page_title contains shop.name %}
+			&ndash; {{ shop.name }}
+	{% endunless %}
+{% endcapture %}
+
+<title>{{ seo_title }}</title>
+
+{% if page_description %}
+  <meta name="description" content="{{ page_description | escape }}">
+{% endif %}
+<meta name="copyright" content="{{ shop.name }} {{ 'now' | date: '%Y' }}">
+<meta name="theme-color" content="{{ settings.primary_color }}">
+
+<!-- Social Meta Tags -->
+{% include 'social-meta-tags' %}
+<!-- END Social Meta Tags -->
+
+<!-- Stylesheets -->
+{% case template %}
+  {% when 'password' %}
+    {% assign fileName = 'password' %}
+	{% when 'index' %}
+    {% assign fileName = 'index' %}
+	{% when 'product' %}
+    {% assign fileName = 'product' %}
+  {% when 'cart' %}
+    {% assign fileName = 'cart' %}
+  {% when 'page.pattern-library' %}
+    {% assign fileName = 'pattern-library' %}
+{% endcase %}
+
+{%- comment -%}<link rel="stylesheet" type="text/css" href="{{ 'vendors.scss' | asset_url }}">{%- endcomment -%}
+{%- comment -%}<link rel="stylesheet" type="text/css" href="{{ 'theme.scss' | asset_url }}">{%- endcomment -%}
+
+{% if fileName %}
+	<link rel="stylesheet" type="text/css" href="{{ fileName | append: '.scss' | asset_url }}">
+{% endif %}

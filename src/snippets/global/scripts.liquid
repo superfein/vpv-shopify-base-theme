@@ -1,0 +1,6 @@
+<script type="text/javascript" src="{{ 'vendors.bundle.js' | asset_url }}" defer></script>
+{%- comment -%}<script src="{{ 'theme.bundle.js' | asset_url }}" defer></script>{%- endcomment -%}
+
+{% if fileName %}
+  <script src="{{ fileName | append: '.bundle.js' | asset_url }}" defer></script>
+{% endif %}

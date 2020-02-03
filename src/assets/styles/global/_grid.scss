@@ -1,111 +1,141 @@
-.container--lg {
-  margin: 0 auto;
-  max-width: $lg-break;
-}
+.container {
+  &--l {
+    max-width: $width--l;
+    margin: 0 auto;
+  }
 
-.container--md {
-  margin: 0 auto;
-  max-width: $md-break;
-}
+  &--m {
+    max-width: $width--m;
+    margin: 0 auto;
+  }
 
-.container--sm {
-  margin: 0 auto;
-  max-width: $sm-break;
+  &--s {
+    max-width: $width--s;
+    margin: 0 auto;
+  }
 }
 
 @mixin width($width) {
   width: ($width / $number-of-columns) * 100%;
 }
+
 @mixin offset-width($width) {
   margin-left: ($width / $number-of-columns) * 100%;
 }
 
 .row {
   display: flex;
-  box-sizing: border-box;
   flex-wrap: wrap;
-  padding-left: $gutter;
-  padding-right: $gutter;
+  padding-right: $gutter--mbl;
+  padding-left: $gutter--mbl;
+  box-sizing: border-box;
 
-  &.align-top {
+  @media screen and (min-width: $break--tblt) {
+    padding-right: $gutter--tblt;
+    padding-left: $gutter--tblt;
+  }
+
+  @media screen and (min-width: $break--dsktp) {
+    padding-right: $gutter--dsktp;
+    padding-left: $gutter--dsktp;
+  }
+
+  &--align-start {
     align-items: flex-start;
   }
 
-  &.align-bottom {
+  &--align-end {
     align-items: flex-end;
   }
 
-  &.align-center {
+  &--align-center {
     align-items: center;
   }
 
-  &.flush {
-    padding: 0;
+  &--flush {
+    padding-right: 0;
+    padding-left: 0;
 
     & > [class^="col-"] {
-      padding: 0;
+      padding-right: 0;
+      padding-left: 0;
     }
   }
 
-  &.no-pad {
-      padding: 0;
+  &--no-padding {
+    padding-right: 0;
+    padding-left: 0;
   }
 
-  &.justify-around {
+  &--justify-around {
     justify-content: space-around;
   }
 
-  &.justify-between {
+  &--justify-between {
     justify-content: space-between;
   }
 
-  &.justify-center {
+  &--justify-center {
     justify-content: center;
   }
 
-  &.justify-end {
+  &--justify-end {
     justify-content: flex-end;
   }
 
-  &.direction-column {
+  &--direction-column {
     flex-direction: column;
   }
 
-  &.no-wrap {
+  &--no-wrap {
     flex-wrap: nowrap;
   }
 }
+
 // Base class
-[class*="col-"] {
-  padding: $gutter;
-  box-sizing: border-box;
+.col {
   width: 100%;
-  
-  &.width-auto {
+  padding-right: $gutter--mbl;
+  padding-left: $gutter--mbl;
+  box-sizing: border-box;
+
+  @media screen and (min-width: $break--tblt) {
+    padding-right: $gutter--tblt;
+    padding-left: $gutter--tblt;
+  }
+
+  @media screen and (min-width: $break--dsktp) {
+    padding-right: $gutter--dsktp;
+    padding-left: $gutter--dsktp;
+  }
+
+  &--width-auto {
     width: auto;
   }
-  &.align-top {
+
+  &--align-start {
     align-self: flex-start;
   }
 
-  &.align-bottom {
+  &--align-end {
     align-self: flex-end;
   }
 
-  &.align-center {
+  &--align-center {
     align-self: center;
   }
 
-  > .row {
-    padding: 0;
+  &--no-padding {
+    padding-right: 0;
+    padding-left: 0;
   }
 
-  @for $i from 1 through $number-of-columns {
-    &.order-#{$i} {
-      order: $i;
-    }
+  &> .row {
+    padding-right: 0;
+    padding-left: 0;
   }
 }
+
 // Generate classes based on grid variable
 @for $i from 1 through $number-of-columns {
   .col-#{$i} {
@@ -116,38 +146,42 @@
     @include offset-width($i);
   }
 }
-// sm
-@media screen and (min-width: $sm-break) {
+
+// mbl
+@media screen and (min-width: $break--mbl) {
   @for $i from 1 through $number-of-columns {
-    .col-#{$i}-sm {
+    .col-#{$i}--mbl {
       @include width($i);
     }
 
-    .offset-#{$i}-sm {
+    .offset-#{$i}--mbl {
       @include offset-width($i);
     }
   }
 }
-// md
-@media screen and (min-width: $md-break) {
+
+// tblt
+@media screen and (min-width: $break--tblt) {
   @for $i from 1 through $number-of-columns {
-    .col-#{$i}-md {
+    .col-#{$i}--tblt {
       @include width($i);
     }
 
-    .offset-#{$i}-md {
+    .offset-#{$i}--tblt {
       @include offset-width($i);
     }
   }
 }
-// lg
-@media screen and (min-width: $lg-break) {
+
+// dsktp
+@media screen and (min-width: $break--dsktp) {
   @for $i from 1 through $number-of-columns {
-    .col-#{$i}-lg {
+    .col-#{$i}--dsktp {
       @include width($i);
     }
+
     // base offsets
-    .offset-#{$i}-lg {
+    .offset-#{$i}--dsktp {
       @include offset-width($i);
     }
   }

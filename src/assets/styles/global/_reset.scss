@@ -1,3 +1,5 @@
+// sass-lint:disable-all
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -32,6 +34,10 @@ body {
 	line-height: 1;
 }
 ol, ul {
+	list-style-position: inside;
+}
+
+ul {
 	list-style-type: disc;
 	list-style-position: inside;
 }

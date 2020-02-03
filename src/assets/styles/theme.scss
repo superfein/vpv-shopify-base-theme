@@ -1,37 +1,23 @@
 // @charset "UTF-8";
-//
-// // Variables
-@import 'global/variables';
-//
-// // Mixins
-@import 'global/mixins';
-//
-// // Global
-@import 'global/normalize';
-@import 'global/reset';
-@import 'global/utility';
-@import 'global/typography';
-@import 'global/layout';
-@import 'global/grid';
-@import 'global/ui-elements';
-//
-// // Components
-//
-// // Pages
-@import 'pages/index';
-@import 'pages/product';
-@import 'pages/cart';
-@import 'pages/collection';
-@import 'pages/login';
-@import 'pages/resetpw';
-@import 'pages/register';
-@import 'pages/activate';
-@import 'pages/account';
-@import 'pages/addresses';
-@import 'pages/order';
-@import 'pages/search';
-@import 'pages/blog';
 
-// Vendor 
-// example with Swiper SCSS
-@import 'vendor/swiper';
+// Variables
+@import "global/variables";
+
+// Mixins
+@import "global/mixins";
+
+// Global
+@import "global/normalize";
+@import "global/reset";
+@import "global/utility";
+@import "global/layout";
+@import "global/grid";
+@import "global/fonts";
+@import "global/typography";
+@import "global/spacing";
+@import "global/ui-elements";
+
+// Components
+@import "components/global-header";
+@import "components/global-footer";
+@import "components/global-cart";
