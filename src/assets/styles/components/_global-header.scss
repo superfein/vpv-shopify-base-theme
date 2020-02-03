@@ -1,0 +1,10 @@
+.global-header {
+  z-index: 10;
+  width: 100vw;
+  height: 100px;
+
+  &__promo-bar {
+    width: 100vw;
+    height: 30px;
+  }
+}

@@ -34,6 +34,10 @@ body {
 	line-height: 1;
 }
 ol, ul {
+	list-style-position: inside;
+}
+
+ul {
 	list-style-type: disc;
 	list-style-position: inside;
 }

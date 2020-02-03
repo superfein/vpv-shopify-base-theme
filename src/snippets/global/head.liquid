@@ -39,7 +39,9 @@
   {% when 'cart' %}
     {% assign fileName = 'cart' %}
   {% when 'page.pattern-library' %}
-		{% assign fileName = 'pattern-library' %}
+    {% assign fileName = 'pattern-library' %}
+  {% when 'page.grid' %}
+		{% assign fileName = 'grid' %}
 {% endcase %}
 
 {%- comment -%}<link rel="stylesheet" type="text/css" href="{{ 'vendors.scss' | asset_url }}">{%- endcomment -%}

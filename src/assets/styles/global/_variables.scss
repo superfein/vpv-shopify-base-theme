@@ -27,38 +27,49 @@ $color--white: #FFFFFF;
 $color--black: #000000;
 $color--transparent: rgba(0, 0, 0, 0);
 
-// Start Custom Colors
+$color--black--10: rgba($color--black, 0.1);
+$color--black--20: rgba($color--black, 0.2);
+$color--black--50: rgba($color--black, 0.5);
+$color--black--80: rgba($color--black, 0.8);
 
-$color--primary--lighter: #B5A7F2;
-$color--primary--light: #927DEC;
-$color--primary: #6849E3; // Main Color
-$color--primary--dark: #4F2EDB;
-$color--primary--darker: #4227B1;
+$color--white--10: rgba($color--white, 0.1);
+$color--white--20: rgba($color--white, 0.2);
+$color--white--50: rgba($color--white, 0.5);
+$color--white--80: rgba($color--white, 0.8);
 
-$color--dark--lighter: #63607C;
-$color--dark--light: #4E4B61;
-$color--dark: #2D2B3A;
-$color--dark--dark: #232029;
-$color--dark--darker: #000000;
+$color--primary: #6849E3;
+$color--secondary: #49D2E3;
 
-$color--light--lighter: #FFFFFF;
-$color--light--light: #F8F8F8;
-$color--light: #F3F3F3;
-$color--light--dark: #D0D0D0;
-$color--light--darker: #B1B1B1;
+$color--primary--10: rgba($color--primary, 0.1);
+$color--primary--20: rgba($color--primary, 0.2);
+$color--primary--50: rgba($color--primary, 0.5);
+$color--primary--80: rgba($color--primary, 0.8);
 
-// End Custom Colors
+$color--primary--lightest: #E0DAF9;
+$color--primary--lighter: #B3A4F1;
+$color--primary--light: #866DE8;
+$color--primary--dark: #5D41CC;
+$color--primary--darker: #533AB5;
+$color--primary--darkest: #3E2B88;
 
-$color--darken-1: rgba($color--dark, 0.1);
-$color--darken-2: rgba($color--dark, 0.2);
-$color--darken-3: rgba($color--dark, 0.5);
+$color--secondary--10: rgba($color--secondary, 0.1);
+$color--secondary--20: rgba($color--secondary, 0.2);
+$color--secondary--50: rgba($color--secondary, 0.5);
+$color--secondary--80: rgba($color--secondary, 0.8);
 
-$color--lighten-1: rgba($color--light, 0.1);
-$color--lighten-2: rgba($color--light, 0.2);
-$color--lighten-3: rgba($color--light, 0.5);
+$color--secondary--lightest: #DAF6F9;
+$color--secondary--lighter: #A4E8F1;
+$color--secondary--light: #6DDBE8;
+$color--secondary--dark: #41BCCB;
+$color--secondary--darker: #3AA8B5;
+$color--secondary--darkest: #2B7E88;
 
-$color--type: $color--dark--dark;
-$color--error: #DB2B39;
+$color--error: #E35A49;
+$color--error--50: rgba($color--error, 0.5);
+$color--success: #65CD7F;
+$color--success--50: rgba($color--success, 0.5);
+
+$color--type: #222222;
 
 $color--test-red: rgba(255, 0, 0, 0.5);
 $color--test-orange: rgba(255, 128, 0, 0.5);
@@ -87,35 +98,41 @@ $space--base--mbl: 0.625rem; // 10px
 $space--base--tblt: 0.8rem; // 16px
 $space--base--dsktp: 1rem; // 20px
 
-$space--xxxl--mbl: calc(#{$space--base--mbl} * 8.5);
-$space--xxl--mbl: calc(#{$space--base--mbl} * 5);
-$space--xl--mbl: calc(#{$space--base--mbl} * 3.25);
-$space--l--mbl: calc(#{$space--base--mbl} * 2);
-$space--m--mbl: calc(#{$space--base--mbl} * 1.5);
-$space--s--mbl: calc(#{$space--base--mbl} * 1);
-$space--xs--mbl: calc(#{$space--base--mbl} * 0.5);
-$space--xxs--mbl: calc(#{$space--base--mbl} * 0.4);
-$space--xxxs--mbl: calc(#{$space--base--mbl} * 0.3);
+$space--xxxxl--mbl: calc(#{$space--base--mbl} * 8.59375);
+$space--xxxl--mbl: calc(#{$space--base--mbl} * 5.3125);
+$space--xxl--mbl: calc(#{$space--base--mbl} * 3.28125);
+$space--xl--mbl: calc(#{$space--base--mbl} * 2.03125);
+$space--l--mbl: calc(#{$space--base--mbl} * 1.25);
+$space--m--mbl: calc(#{$space--base--mbl} * 0.78125);
+$space--s--mbl: calc(#{$space--base--mbl} * 0.46875);
+$space--xs--mbl: calc(#{$space--base--mbl} * 0.3125);
+$space--xxs--mbl: calc(#{$space--base--mbl} * 0.234375);
+$space--xxxs--mbl: calc(#{$space--base--mbl} * 0.15625);
+$space--xxxxs--mbl: calc(#{$space--base--mbl} * 0.078125);
 
-$space--xxxl--tblt: calc(#{$space--base--tblt }* 13.6);
-$space--xxl--tblt: calc(#{$space--base--tblt }* 8.4);
-$space--xl--tblt: calc(#{$space--base--tblt }* 5.2);
-$space--l--tblt: calc(#{$space--base--tblt }* 3.2);
-$space--m--tblt: calc(#{$space--base--tblt }* 2);
-$space--s--tblt: calc(#{$space--base--tblt }* 1.2);
-$space--xs--tblt: calc(#{$space--base--tblt }* 0.8);
-$space--xxs--tblt: calc(#{$space--base--tblt }* 0.6);
-$space--xxxs--tblt: calc(#{$space--base--tblt }* 0.4);
+$space--xxxxl--tblt: calc(#{$space--base--tblt} * 13.75);
+$space--xxxl--tblt: calc(#{$space--base--tblt} * 8.5);
+$space--xxl--tblt: calc(#{$space--base--tblt} * 5.2);
+$space--xl--tblt: calc(#{$space--base--tblt} * 3.25);
+$space--l--tblt: calc(#{$space--base--tblt} * 2);
+$space--m--tblt: calc(#{$space--base--tblt} * 1.25);
+$space--s--tblt: calc(#{$space--base--tblt} * 0.75);
+$space--xs--tblt: calc(#{$space--base--tblt} * 0.5);
+$space--xxs--tblt: calc(#{$space--base--tblt} * 0.375);
+$space--xxxs--tblt: calc(#{$space--base--tblt} * 0.25);
+$space--xxxxs--tblt: calc(#{$space--base--tblt} * 0.125);
 
-$space--xxxl--dsktp: calc(#{$space--base--dsktp} * 17);
-$space--xxl--dsktp: calc(#{$space--base--dsktp} * 10.5);
-$space--xl--dsktp: calc(#{$space--base--dsktp} * 6.5);
-$space--l--dsktp: calc(#{$space--base--dsktp} * 4);
-$space--m--dsktp: calc(#{$space--base--dsktp} * 2);
-$space--s--dsktp: calc(#{$space--base--dsktp} * 1.5);
-$space--xs--dsktp: calc(#{$space--base--dsktp} * 1);
-$space--xxs--dsktp: calc(#{$space--base--dsktp} * 0.75);
-$space--xxxs--dsktp: calc(#{$space--base--dsktp} * 0.5);
+$space--xxxxl--dsktp: calc(#{$space--base--dsktp} * 17.1875);
+$space--xxxl--dsktp: calc(#{$space--base--dsktp} * 10.625);
+$space--xxl--dsktp: calc(#{$space--base--dsktp} * 6.5625);
+$space--xl--dsktp: calc(#{$space--base--dsktp} * 4.0625);
+$space--l--dsktp: calc(#{$space--base--dsktp} * 2.5);
+$space--m--dsktp: calc(#{$space--base--dsktp} * 1.5625);
+$space--s--dsktp: calc(#{$space--base--dsktp} * 0.9375);
+$space--xs--dsktp: calc(#{$space--base--dsktp} * 0.625);
+$space--xxs--dsktp: calc(#{$space--base--dsktp} * 0.46875);
+$space--xxxs--dsktp: calc(#{$space--base--dsktp} * 0.3125);
+$space--xxxxs--dsktp: calc(#{$space--base--dsktp} * 0.125);
 
 /*==== Transitions ====*/
 $bezier: cubic-bezier(0.23, 1, 0.32, 1); // easeOutQuint

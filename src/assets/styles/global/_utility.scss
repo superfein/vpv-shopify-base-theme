@@ -207,10 +207,42 @@
 .bg {
   &--white {
     background-color: $color--white;
+
+    &--10 {
+      background-color: $color--white--10;
+    }
+
+    &--20 {
+      background-color: $color--white--20;
+    }
+
+    &--50 {
+      background-color: $color--white--50;
+    }
+
+    &--80 {
+      background-color: $color--white--80;
+    }
   }
 
   &--black {
     background-color: $color--black;
+
+    &--10 {
+      background-color: $color--black--10;
+    }
+
+    &--20 {
+      background-color: $color--black--20;
+    }
+
+    &--50 {
+      background-color: $color--black--50;
+    }
+
+    &--80 {
+      background-color: $color--black--80;
+    }
   }
 
   &--transparent {
@@ -219,6 +251,26 @@
 
   &--primary {
     background-color: $color--primary;
+
+    &--10 {
+      background-color: $color--primary--10;
+    }
+
+    &--20 {
+      background-color: $color--primary--20;
+    }
+
+    &--50 {
+      background-color: $color--primary--50;
+    }
+
+    &--80 {
+      background-color: $color--primary--80;
+    }
+
+    &--lightest {
+      background-color: $color--primary--lightest;
+    }
 
     &--lighter {
       background-color: $color--primary--lighter;
@@ -235,78 +287,74 @@
     &--darker {
       background-color: $color--primary--darker;
     }
+
+    &--darkest {
+      background-color: $color--primary--darkest;
+    }
   }
 
-  &--dark {
-    background-color: $color--dark;
+  &--secondary {
+    background-color: $color--secondary;
+
+    &--10 {
+      background-color: $color--secondary--10;
+    }
+
+    &--20 {
+      background-color: $color--secondary--20;
+    }
+
+    &--50 {
+      background-color: $color--secondary--50;
+    }
+
+    &--80 {
+      background-color: $color--secondary--80;
+    }
+
+    &--lightest {
+      background-color: $color--secondary--lightest;
+    }
 
     &--lighter {
-      background-color: $color--dark--lighter;
+      background-color: $color--secondary--lighter;
     }
 
     &--light {
-      background-color: $color--dark--light;
+      background-color: $color--secondary--light;
     }
 
     &--dark {
-      background-color: $color--dark--dark;
+      background-color: $color--secondary--dark;
     }
 
     &--darker {
-      background-color: $color--dark--darker;
-    }
-  }
-
-  &--light {
-    background-color: $color--light;
-
-    &--lighter {
-      background-color: $color--light--lighter;
+      background-color: $color--secondary--darker;
     }
 
-    &--light {
-      background-color: $color--light--light;
+    &--darkest {
+      background-color: $color--secondary--darkest;
     }
-
-    &--dark {
-      background-color: $color--light--dark;
-    }
-
-    &--darker {
-      background-color: $color--light--darker;
-    }
-  }
-
-  &--darken-1 {
-    background-color: $color--darken-1;
-  }
-
-  &--darken-2 {
-    background-color: $color--darken-2;
-  }
-
-  &--darken-3 {
-    background-color: $color--darken-3;
-  }
-
-  &--lighten-1 {
-    background-color: $color--lighten-1;
-  }
-
-  &--lighten-2 {
-    background-color: $color--lighten-2;
-  }
-
-  &--lighten-3 {
-    background-color: $color--lighten-3;
-  }
-
-  &--type {
-    background-color: $color--type;
   }
 
   &--error {
     background-color: $color--error;
+
+    &--50 {
+      background-color: $color--error--50;
+    }
+  }
+
+  &--success {
+    background-color: $color--success;
+
+    &--50 {
+      background-color: $color--success--50;
+    }
+  }
+
+  &--type {
+    background-color: $color--type;
   }
 
   &--test-red {
@@ -341,10 +389,42 @@
 .color {
   &--white {
     color: $color--white;
+
+    &--10 {
+      color: $color--white--10;
+    }
+
+    &--20 {
+      color: $color--white--20;
+    }
+
+    &--50 {
+      color: $color--white--50;
+    }
+
+    &--80 {
+      color: $color--white--80;
+    }
   }
 
   &--black {
     color: $color--black;
+
+    &--10 {
+      color: $color--black--10;
+    }
+
+    &--20 {
+      color: $color--black--20;
+    }
+
+    &--50 {
+      color: $color--black--50;
+    }
+
+    &--80 {
+      color: $color--black--80;
+    }
   }
 
   &--transparent {
@@ -353,6 +433,26 @@
 
   &--primary {
     color: $color--primary;
+
+    &--10 {
+      color: $color--primary--10;
+    }
+
+    &--20 {
+      color: $color--primary--20;
+    }
+
+    &--50 {
+      color: $color--primary--50;
+    }
+
+    &--80 {
+      color: $color--primary--80;
+    }
+
+    &--lightest {
+      color: $color--primary--lightest;
+    }
 
     &--lighter {
       color: $color--primary--lighter;
@@ -369,78 +469,74 @@
     &--darker {
       color: $color--primary--darker;
     }
+
+    &--darker {
+      color: $color--primary--darkest;
+    }
   }
 
-  &--dark {
-    color: $color--dark;
+  &--secondary {
+    color: $color--secondary;
+
+    &--10 {
+      color: $color--secondary--10;
+    }
+
+    &--20 {
+      color: $color--secondary--20;
+    }
+
+    &--50 {
+      color: $color--secondary--50;
+    }
+
+    &--80 {
+      color: $color--secondary--80;
+    }
+
+    &--lightest {
+      color: $color--secondary--lightest;
+    }
 
     &--lighter {
-      color: $color--dark--lighter;
+      color: $color--secondary--lighter;
     }
 
     &--light {
-      color: $color--dark--light;
+      color: $color--secondary--light;
     }
 
     &--dark {
-      color: $color--dark--dark;
+      color: $color--secondary--dark;
     }
 
     &--darker {
-      color: $color--dark--darker;
-    }
-  }
-
-  &--light {
-    color: $color--light;
-
-    &--lighter {
-      color: $color--light--lighter;
-    }
-
-    &--light {
-      color: $color--light--light;
-    }
-
-    &--dark {
-      color: $color--light--dark;
+      color: $color--secondary--darker;
     }
 
     &--darker {
-      color: $color--light--darker;
+      color: $color--secondary--darkest;
     }
-  }
-
-  &--darken-1 {
-    color: $color--darken-1;
-  }
-
-  &--darken-2 {
-    color: $color--darken-2;
-  }
-
-  &--darken-3 {
-    color: $color--darken-3;
-  }
-
-  &--lighten-1 {
-    color: $color--lighten-1;
-  }
-
-  &--lighten-2 {
-    color: $color--lighten-2;
-  }
-
-  &--lighten-3 {
-    color: $color--lighten-3;
-  }
-
-  &--type {
-    color: $color--type;
   }
 
   &--error {
     color: $color--error;
+
+    &--50 {
+      color: $color--error--50;
+    }
+  }
+
+  &--success {
+    color: $color--success;
+
+    &--50 {
+      color: $color--success--50;
+    }
+  }
+
+  &--type {
+    color: $color--type;
   }
 
   &--test-red {
@@ -475,10 +571,42 @@
 .fill {
   &--white {
     fill: $color--white;
+
+    &--10 {
+      fill: $color--white--10;
+    }
+
+    &--20 {
+      fill: $color--white--20;
+    }
+
+    &--50 {
+      fill: $color--white--50;
+    }
+
+    &--80 {
+      fill: $color--white--80;
+    }
   }
 
   &--black {
     fill: $color--black;
+
+    &--10 {
+      fill: $color--black--10;
+    }
+
+    &--20 {
+      fill: $color--black--20;
+    }
+
+    &--50 {
+      fill: $color--black--50;
+    }
+
+    &--80 {
+      fill: $color--black--80;
+    }
   }
 
   &--transparent {
@@ -487,6 +615,26 @@
 
   &--primary {
     fill: $color--primary;
+
+    &--10 {
+      fill: $color--primary--10;
+    }
+
+    &--20 {
+      fill: $color--primary--20;
+    }
+
+    &--50 {
+      fill: $color--primary--50;
+    }
+
+    &--80 {
+      fill: $color--primary--80;
+    }
+
+    &--lightest {
+      fill: $color--primary--lightest;
+    }
 
     &--lighter {
       fill: $color--primary--lighter;
@@ -503,78 +651,74 @@
     &--darker {
       fill: $color--primary--darker;
     }
+
+    &--darker {
+      fill: $color--primary--darkest;
+    }
   }
 
-  &--dark {
-    fill: $color--dark;
+  &--secondary {
+    fill: $color--secondary;
+
+    &--10 {
+      fill: $color--secondary--10;
+    }
+
+    &--20 {
+      fill: $color--secondary--20;
+    }
+
+    &--50 {
+      fill: $color--secondary--50;
+    }
+
+    &--80 {
+      fill: $color--secondary--80;
+    }
+
+    &--lightest {
+      fill: $color--secondary--lightest;
+    }
 
     &--lighter {
-      fill: $color--dark--lighter;
+      fill: $color--secondary--lighter;
     }
 
     &--light {
-      fill: $color--dark--light;
+      fill: $color--secondary--light;
     }
 
     &--dark {
-      fill: $color--dark--dark;
+      fill: $color--secondary--dark;
     }
 
     &--darker {
-      fill: $color--dark--darker;
-    }
-  }
-
-  &--light {
-    fill: $color--light;
-
-    &--lighter {
-      fill: $color--light--lighter;
-    }
-
-    &--light {
-      fill: $color--light--light;
-    }
-
-    &--dark {
-      fill: $color--light--dark;
+      fill: $color--secondary--darker;
     }
 
     &--darker {
-      fill: $color--light--darker;
+      fill: $color--secondary--darkest;
     }
-  }
-
-  &--darken-1 {
-    fill: $color--darken-1;
-  }
-
-  &--darken-2 {
-    fill: $color--darken-2;
-  }
-
-  &--darken-3 {
-    fill: $color--darken-3;
-  }
-
-  &--lighten-1 {
-    fill: $color--lighten-1;
-  }
-
-  &--lighten-2 {
-    fill: $color--lighten-2;
-  }
-
-  &--lighten-3 {
-    fill: $color--lighten-3;
-  }
-
-  &--type {
-    fill: $color--type;
   }
 
   &--error {
     fill: $color--error;
+
+    &--50 {
+      fill: $color--error--50;
+    }
+  }
+
+  &--success {
+    fill: $color--success;
+
+    &--50 {
+      fill: $color--success--50;
+    }
+  }
+
+  &--type {
+    fill: $color--type;
   }
 
   &--test-red {
@@ -609,10 +753,42 @@
 .border-color {
   &--white {
     border-color: $color--white;
+
+    &--10 {
+      border-color: $color--white--10;
+    }
+
+    &--20 {
+      border-color: $color--white--20;
+    }
+
+    &--50 {
+      border-color: $color--white--50;
+    }
+
+    &--80 {
+      border-color: $color--white--80;
+    }
   }
 
   &--black {
     border-color: $color--black;
+
+    &--10 {
+      border-color: $color--black--10;
+    }
+
+    &--20 {
+      border-color: $color--black--20;
+    }
+
+    &--50 {
+      border-color: $color--black--50;
+    }
+
+    &--80 {
+      border-color: $color--black--80;
+    }
   }
 
   &--transparent {
@@ -621,6 +797,26 @@
 
   &--primary {
     border-color: $color--primary;
+
+    &--10 {
+      border-color: $color--primary--10;
+    }
+
+    &--20 {
+      border-color: $color--primary--20;
+    }
+
+    &--50 {
+      border-color: $color--primary--50;
+    }
+
+    &--80 {
+      border-color: $color--primary--80;
+    }
+
+    &--lightest {
+      border-color: $color--primary--lightest;
+    }
 
     &--lighter {
       border-color: $color--primary--lighter;
@@ -637,78 +833,74 @@
     &--darker {
       border-color: $color--primary--darker;
     }
+
+    &--darker {
+      border-color: $color--primary--darkest;
+    }
   }
 
-  &--dark {
-    border-color: $color--dark;
+  &--secondary {
+    border-color: $color--secondary;
+
+    &--10 {
+      border-color: $color--secondary--10;
+    }
+
+    &--20 {
+      border-color: $color--secondary--20;
+    }
+
+    &--50 {
+      border-color: $color--secondary--50;
+    }
+
+    &--80 {
+      border-color: $color--secondary--80;
+    }
+
+    &--lightest {
+      border-color: $color--secondary--lightest;
+    }
 
     &--lighter {
-      border-color: $color--dark--lighter;
+      border-color: $color--secondary--lighter;
     }
 
     &--light {
-      border-color: $color--dark--light;
+      border-color: $color--secondary--light;
     }
 
     &--dark {
-      border-color: $color--dark--dark;
+      border-color: $color--secondary--dark;
     }
 
     &--darker {
-      border-color: $color--dark--darker;
-    }
-  }
-
-  &--light {
-    border-color: $color--light;
-
-    &--lighter {
-      border-color: $color--light--lighter;
-    }
-
-    &--light {
-      border-color: $color--light--light;
-    }
-
-    &--dark {
-      border-color: $color--light--dark;
+      border-color: $color--secondary--darker;
     }
 
     &--darker {
-      border-color: $color--light--darker;
+      border-color: $color--secondary--darkest;
     }
-  }
-
-  &--darken-1 {
-    border-color: $color--darken-1;
-  }
-
-  &--darken-2 {
-    border-color: $color--darken-2;
-  }
-
-  &--darken-3 {
-    border-color: $color--darken-3;
-  }
-
-  &--lighten-1 {
-    border-color: $color--lighten-1;
-  }
-
-  &--lighten-2 {
-    border-color: $color--lighten-2;
-  }
-
-  &--lighten-3 {
-    border-color: $color--lighten-3;
-  }
-
-  &--type {
-    border-color: $color--type;
   }
 
   &--error {
     border-color: $color--error;
+
+    &--50 {
+      border-color: $color--error--50;
+    }
+  }
+
+  &--success {
+    border-color: $color--success;
+
+    &--50 {
+      border-color: $color--success--50;
+    }
+  }
+
+  &--type {
+    border-color: $color--type;
   }
 
   &--test-red {

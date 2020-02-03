@@ -3,70 +3,277 @@ button,
 input,
 select {
   &:focus {
-    outline: dotted 1px $color--primary;
+    outline: none;
   }
 }
 
-.button {
-  @extend %type--button;
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 48px;
-  padding: 0 16px;
-  color: $color--white;
-  text-align: center;
-  cursor: pointer;
-  background-color: $color--dark--dark;
-  border: 0;
-  border-radius: 2px;
-  box-sizing: border-box;
-  transition: background-color $base-transition--quick;
+.clickable {
+  &--contained {
+    @extend %type--button;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 16px;
+    color: $color--white;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    background-color: $color--black;
+    border: 0;
+    border-radius: 2px;
+    transition: background-color $base-transition--quick, border $base-transition--quick;
 
-  &:hover {
-    background-color: $color--dark--light;
-  }
-
-  &:focus {
-    border: solid 2px $color--primary;
-    outline: none;
-  }
-
-  &:active {
-    background-color: $color--dark--lighter;
-  }
-
-  &:disabled,
-  &:not(button) {
-    &:not([href]) {
-      cursor: not-allowed;
-      background-color: $color--light--darker;
-    }
-  }
-
-  &--light {
-    color: $color--dark--dark;
-    background-color: $color--light;
-
-    &:hover {
-      background-color: $color--light--dark;
+    @media screen and (min-width: $break--tblt) {
+      &:hover {
+        background-color: $color--black--50;
+      }
     }
 
     &:focus {
-      border: solid 2px $color--primary;
-      outline: none;
+      outline: solid 2px $color--primary;
+      outline-offset: 2px;
     }
 
     &:active {
-      background-color: $color--light--darker;
+      background-color: $color--black--80;
     }
 
     &:disabled,
     &:not(button) {
       &:not([href]) {
         cursor: not-allowed;
-        background-color: $color--light--darker;
+        background-color: $color--black--10;
+      }
+    }
+
+    &--primary {
+      background-color: $color--primary;
+
+      @media screen and (min-width: $break--tblt) {
+        &:hover {
+          background-color: $color--primary--50;
+        }
+      }
+
+      &:active {
+        background-color: $color--primary--80;
+      }
+
+      &:disabled,
+      &:not(button) {
+        &:not([href]) {
+          cursor: not-allowed;
+          background-color: $color--primary--10;
+        }
+      }
+    }
+
+    &--white {
+      color: $color--black;
+      background-color: $color--white;
+
+      @media screen and (min-width: $break--tblt) {
+        &:hover {
+          background-color: $color--white--80;
+        }
+      }
+
+      &:active {
+        background-color: $color--white--20;
+      }
+
+      &:disabled,
+      &:not(button) {
+        &:not([href]) {
+          cursor: not-allowed;
+          background-color: $color--white--20;
+        }
+      }
+    }
+  }
+
+  &--uncontained {
+    @extend %type--button;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 0 16px;
+    color: $color--black;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    background-color: $color--transparent;
+    border: 0;
+    transition: background-color $base-transition--quick, border $base-transition--quick;
+
+    &::after {
+      position: absolute;
+      bottom: 10px;
+      left: 16px; 
+      width: calc(100% - 32px); // 100% of parent - left right padding of parent
+      height: 1px;
+      background-color: $color--black;
+      content: "";
+    }
+
+    @media screen and (min-width: $break--tblt) {
+      &:hover {
+        &::after {
+          width: 0;
+        }
+      }
+    }
+
+    &:focus {
+      outline: solid 2px $color--primary;
+      outline-offset: 2px;
+    }
+
+    &:disabled,
+    &:not(button) {
+      &:not([href]) {
+        color: $color--black--50;
+        cursor: not-allowed;
+
+        &::after {
+          background-color: $color--black--50;
+        }
+
+        &:hover {
+          &::after {
+            width: calc(100% - 32px); // 100% of parent - left right padding of parent
+          }
+        }
+      }
+    }
+
+    &--primary {
+      color: $color--primary;
+
+      &::after {
+        background-color: $color--primary;
+      }
+
+      &:disabled,
+      &:not(button) {
+        &:not([href]) {
+          color: $color--primary--50;
+
+          &::after {
+            background-color: $color--primary--50;
+          }
+        }
+      }
+    }
+
+    &--white {
+      color: $color--white;
+
+      &::after {
+        background-color: $color--white;
+      }
+
+      &:disabled,
+      &:not(button) {
+        &:not([href]) {
+          color: $color--white--50;
+
+          &::after {
+            background-color: $color--white--50;
+          }
+        }
+      }
+    }
+  }
+
+  &--icon {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    cursor: pointer;
+    background-color: $color--transparent;
+    border: 0;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: $color--black;
+    }
+
+    &:focus {
+      outline: solid 2px $color--primary;
+      outline-offset: 2px;
+    }
+
+    &:disabled,
+    &:not(button) {
+      cursor: not-allowed;
+
+      svg {
+        fill: $color--black--50;
+      }  
+    }
+
+    &--primary {
+      svg {
+        fill: $color--primary;
+      }
+
+      &:disabled,
+      &:not(button) {
+        svg {
+          fill: $color--primary--50;
+        }  
+      }
+    }
+
+    &--white {
+      svg {
+        fill: $color--white;
+      }
+
+      &:disabled,
+      &:not(button) {
+        svg {
+          fill: $color--white--50;
+        }  
+      }
+    }
+  }
+
+  &--swatch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    cursor: pointer;
+    background-size: cover;
+    border: 0;
+    border-radius: 50%;
+
+    &:hover,
+    &:focus,
+    &.selected {
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 26px;
+        height: 26px;
+        border: solid 1px $color--black;
+        border-radius: 50%;
+        content: "";
+        outline: none;
+        transform: translate(-50%, -50%);
       }
     }
   }
@@ -81,7 +288,6 @@ select {
     background-color: $color--transparent;
     border: 0;
     border-radius: 0;
-    box-shadow: none;
     appearance: none;
   }
 }
@@ -102,28 +308,24 @@ select {
   }
 
   &--light {
-    color: $color--dark;
-    background-color: $color--light;
-    box-shadow: $color--darken-2 0 2px 1px -1px, $color--darken-1 0 1px 3px 0;
+    color: $color--black;
+    background-color: $color--white;
     transition: background-color $base-transition, box-shadow $base-transition;
 
     &:focus {
-      background-color: $color--light--lighter;
+      background-color: $color--white;
       outline: none;
-      box-shadow: $color--darken-2 0 4px 3px -2px, $color--darken-1 0 2px 9px 0;
     }
   }
 
   &--dark {
-    color: $color--light;
-    background-color: $color--primary--light;
-    box-shadow: $color--darken-2 0 2px 1px -1px, $color--darken-1 0 1px 3px 0;
+    color: $color--white;
+    background-color: $color--white;
     transition: background-color $base-transition, box-shadow $base-transition;
 
     &:focus {
       background-color: $color--primary--lighter;
       outline: none;
-      box-shadow: $color--darken-2 0 4px 3px -2px, $color--darken-1 0 2px 9px 0;
     }
   }
 

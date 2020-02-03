@@ -1,6 +1,6 @@
 {
 	"name": "vpv-shopify-theme",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "",
 	"main": "index.js",
 	"repository": "https://github.com/verbalplusvisual/vpv-shopify-base-theme",
@@ -8,8 +8,7 @@
 		"build": "node -r esm ./functions/Build",
 		"watch": "node -r esm ./functions/Watch",
 		"deploy": "node -r esm ./functions/Deploy",
-		"download": "node -r esm ./functions/Download",
-		"audit": "lighthouse https://sandbox-vpv-base.myshopify.com --budget-path=./audit.json --view --only-categories=accessibility,best-practices,performance,seo"
+		"download": "node -r esm ./functions/Download"
 	},
 	"keywords": [],
 	"author": "",
@@ -42,11 +41,10 @@
 		"fs-extra": "^8.1.0",
 		"glob": "^7.1.6",
 		"html-minifier": "^4.0.0",
-		"lighthouse": "^5.6.0",
 		"mini-css-extract-plugin": "^0.8.2",
 		"postcss-preset-env": "^6.7.0",
 		"slash": "^3.0.0",
-		"terser-webpack-plugin": "^2.3.1",
+		"terser-webpack-plugin": "^2.3.2",
 		"vue": "^2.6.11",
 		"webpack": "^4.41.5",
 		"webpack-cli": "^3.3.10",
