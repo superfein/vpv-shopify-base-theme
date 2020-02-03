@@ -1,10 +1,6 @@
 @import "../theme";
 
 .page-pattern-library {
-
-  &__pallete {
-  }
-
   &__color-swatch {
     width: 20%;
     padding-top: 20%;
@@ -13,7 +9,6 @@
     &--sm {
       width: calc(100%/7);
       padding-top: calc(100%/7);
-      border-radius: 50%;
     }
   }
 }

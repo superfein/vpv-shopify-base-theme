@@ -40,12 +40,10 @@
     {% assign fileName = 'cart' %}
   {% when 'page.pattern-library' %}
     {% assign fileName = 'pattern-library' %}
-  {% when 'page.grid' %}
-		{% assign fileName = 'grid' %}
 {% endcase %}
 
 {%- comment -%}<link rel="stylesheet" type="text/css" href="{{ 'vendors.scss' | asset_url }}">{%- endcomment -%}
-<link rel="stylesheet" type="text/css" href="{{ 'theme.scss' | asset_url }}">
+{%- comment -%}<link rel="stylesheet" type="text/css" href="{{ 'theme.scss' | asset_url }}">{%- endcomment -%}
 
 {% if fileName %}
 	<link rel="stylesheet" type="text/css" href="{{ fileName | append: '.scss' | asset_url }}">
