@@ -49,8 +49,11 @@
         ],
       {% endif %}
       "description": "{{ product.description | strip_html | escape | newline_to_br | strip_newlines }}",
-      {% if current_variant.sku != blank %}
-        "sku": "{{ current_variant.sku }}",
+      {% if product.selected_or_first_available_variant.sku != blank %}
+        "sku": "{{ product.selected_or_first_available_variant.sku }}",
+      {% endif %}
+      {% if product.selected_or_first_available_variant.barcode != blank %}
+        "gtin": "{{ product.selected_or_first_available_variant.barcode }}",
       {% endif %}
       "brand": {
         "@type": "Thing",
@@ -61,34 +64,11 @@
           {% for variant in product.variants %}
             {
               "@type" : "Offer",
-              "availability" : "http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
+              "availability" : "{% if product.available %}InStock{% else %}OutOfStock{% endif %}",
               "price" : "{{ variant.price | divided_by: 100.00 }}",
               "priceCurrency" : "{{ shop.currency }}",
               "url" : "{{ shop.url }}{{ variant.url }}",
-              "itemOffered" :
-              {
-                  "@type" : "Product",
-                  {% if variant.image %}
-                    {% assign variant_image_size = variant.image.width | append: 'x' %}
-                    "image": "http:{{ variant.image.src | img_url: variant_image_size }}",
-                  {% endif %}
-                  {% if variant.title != blank %}
-                    "name" : "{{ variant.title | escape }}",
-                  {% endif %}
-                  {% if variant.sku != blank %}
-                    "sku": "{{ variant.sku }}",
-                  {% endif %}
-                  {% if variant.weight != blank %}
-                    "weight": {
-                      "@type": "QuantitativeValue",
-                      {% if variant.weight_unit != blank %}
-                        "unitCode": "{{ variant.weight_unit }}",
-                      {% endif %}
-                      "value": "{{ variant.weight | weight_with_unit: variant.weight_unit }}"
-                    },
-                  {% endif %}
-                  "url": "{{ shop.url }}{{ variant.url }}"
-              }
+              "name" : "{{ variant.title }}"
             }{% unless forloop.last %},{% endunless %}
           {% endfor %}
         ]
